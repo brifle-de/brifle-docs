@@ -1,0 +1,433 @@
+---
+id: web-api-controller-content-controller-check-receiver
+title: "Checks receiver"
+description: "Checks if a user is in the system"
+sidebar_label: "Checks receiver"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/api/brifle
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Checks receiver"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/v1/content/receiver/check"}
+>
+  
+</MethodEndpoint>
+
+
+
+Checks if a user is in the system
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        <div
+          style={{"marginTop":"1rem","marginBottom":"1rem"}}
+        >
+          
+          
+          Receiver params
+          
+          
+        </div>
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"account_id"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"description":"Account ID","example":"123456789","type":"string","x-struct":null,"x-validate":null}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={true}
+          className={"schemaItem"}
+        >
+          <details
+            style={{}}
+            className={"openapi-markdown__details"}
+          >
+            <summary
+              style={{}}
+            >
+              <span
+                className={"openapi-schema__container"}
+              >
+                <strong
+                  className={"openapi-schema__property"}
+                >
+                  birth_information
+                </strong><span
+                  className={"openapi-schema__name"}
+                >
+                   object
+                </span>
+              </span>
+            </summary><div
+              style={{"marginLeft":"1rem"}}
+            >
+              <SchemaItem
+                collapsible={false}
+                name={"birth_name"}
+                required={false}
+                schemaName={"string"}
+                qualifierMessage={undefined}
+                schema={{"description":"Birth Name","example":"Smith","type":"string","x-struct":null,"x-validate":null}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"date_of_birth"}
+                required={false}
+                schemaName={"string"}
+                qualifierMessage={undefined}
+                schema={{"description":"Date of Birth","example":"1990-01-01","type":"string","x-struct":null,"x-validate":null}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"given_names"}
+                required={false}
+                schemaName={"string"}
+                qualifierMessage={undefined}
+                schema={{"description":"Given Name(s)","example":"John William","type":"string","x-struct":null,"x-validate":null}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"last_name"}
+                required={false}
+                schemaName={"string"}
+                qualifierMessage={undefined}
+                schema={{"description":"Last Name","example":"Doe","type":"string","x-struct":null,"x-validate":null}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"nationality"}
+                required={false}
+                schemaName={"string"}
+                qualifierMessage={undefined}
+                schema={{"description":"Nationality","example":"Germany","type":"string","x-struct":null,"x-validate":null}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"place_of_birth"}
+                required={false}
+                schemaName={"string"}
+                qualifierMessage={undefined}
+                schema={{"description":"Place of Birth","example":"Berlin","type":"string","x-struct":null,"x-validate":null}}
+              >
+                
+              </SchemaItem>
+            </div>
+          </details>
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"date_of_birth"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"description":"Date of Birth","example":"1990-01-01","type":"string","x-struct":null,"x-validate":null}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"email"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"description":"Email Address","example":"john.doe@example.com","type":"string","x-struct":null,"x-validate":null}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"first_name"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"description":"First Name","example":"John","type":"string","x-struct":null,"x-validate":null}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"full_name"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"description":"Full Name","example":"John Doe","type":"string","x-struct":null,"x-validate":null}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"last_name"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"description":"Last Name","example":"Doe","type":"string","x-struct":null,"x-validate":null}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"ssn"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"description":"Social Security Number","example":"123-45-6789","type":"string","x-struct":null,"x-validate":null}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"tel"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"description":"Phone Number","example":"+49 123-456-7890","type":"string","x-struct":null,"x-validate":null}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"vat_id"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"description":"VAT ID","example":"DE123456789","type":"string","x-struct":null,"x-validate":null}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Receiver response
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"type"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","x-struct":null,"x-validate":null}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"type\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"404"}
+        value={"404"}
+      >
+        <div>
+          
+          
+          Not found
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"code"}
+                        required={false}
+                        schemaName={"number"}
+                        qualifierMessage={undefined}
+                        schema={{"example":40401,"type":"number","x-struct":null,"x-validate":null}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"message"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"example":"receiver not found","type":"string","x-struct":null,"x-validate":null}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"status"}
+                        required={false}
+                        schemaName={"number"}
+                        qualifierMessage={undefined}
+                        schema={{"example":404,"type":"number","x-struct":null,"x-validate":null}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"code\": 40401,\n  \"message\": \"receiver not found\",\n  \"status\": 404\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

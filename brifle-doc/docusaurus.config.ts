@@ -31,20 +31,22 @@ const config: Config = {
 
   presets: [
     [
-      'docusaurus-preset-openapi',
-      /** @type {import('docusaurus-preset-openapi').Options} */
+      'classic',
+      
       {
         docs: {
           sidebarPath: './sidebars.ts',
+          docItemComponent: "@theme/ApiItem", // Derived from docusaurus-theme-openapi
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
-        api: {
-          path: "./openapi.json",
-          routeBasePath: "/api",
-        },
+        
+       // api: {
+       //   path: "./openapi.json",
+       //   routeBasePath: "/api",
+       // },
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -54,6 +56,12 @@ const config: Config = {
 
   themeConfig: {
     
+    colorMode: {
+      defaultMode: 'dark',
+      disableSwitch: true,
+      respectPrefersColorScheme: false,
+    },
+
     // Replace with your project's social card
     //image: 'img/docusaurus-social-card.jpg',
     navbar: {
@@ -70,7 +78,8 @@ const config: Config = {
           label: 'Tutorial',
         },
         {
-          to: '/api',
+          type: 'docSidebar',
+          sidebarId: 'apiSidebar',
           label: 'API',
           position: 'left',
         },
@@ -103,11 +112,90 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,  
+      additionalLanguages: [
+        "ruby",
+        "csharp",
+        "php",
+        "java",
+        "powershell",
+        "json",
+        "bash",
+      ],
     },  
+    languageTabs: [
+      {
+        highlight: "python",
+        language: "python",
+        logoClass: "python",
+      },
+      {
+        highlight: "bash",
+        language: "curl",
+        logoClass: "bash",
+      },
+      {
+        highlight: "csharp",
+        language: "csharp",
+        logoClass: "csharp",
+      },
+      {
+        highlight: "go",
+        language: "go",
+        logoClass: "go",
+      },
+      {
+        highlight: "javascript",
+        language: "nodejs",
+        logoClass: "nodejs",
+      },
+      {
+        highlight: "ruby",
+        language: "ruby",
+        logoClass: "ruby",
+      },
+      {
+        highlight: "php",
+        language: "php",
+        logoClass: "php",
+      },
+      {
+        highlight: "java",
+        language: "java",
+        logoClass: "java",
+        variant: "unirest",
+      },
+    ],
     
     
     
   } satisfies Preset.ThemeConfig,
+  plugins: [
+    [
+      "docusaurus-plugin-openapi-docs",
+      {
+        id: "api",
+        docsPluginId: "classic",
+        config: {
+          brifle_api: {
+            specPath: "openapi.json",
+            outputDir: "docs/brifle", // No trailing slash
+            sidebarOptions: {
+              groupPathsBy: "tag",
+              categoryLinkSource: "tag",
+            },
+
+          } satisfies OpenApiPlugin.Options,
+        } satisfies Plugin.PluginOptions,
+      },
+    ],
+  ],
+  themes: ["docusaurus-theme-openapi-docs"],
+  stylesheets: [
+    {
+      href: "https://use.fontawesome.com/releases/v5.11.0/css/all.css",
+      type: "text/css",
+    },
+  ],
 };
 
 export default config;

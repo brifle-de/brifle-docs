@@ -42,3 +42,9 @@
 * {
   font-family: 'Twemoji Country Flags', 'Quicksand' !important;
 }
+
+
+.openapi-explorer__request-btn
+{
+  color: #173611 !important;
+}
