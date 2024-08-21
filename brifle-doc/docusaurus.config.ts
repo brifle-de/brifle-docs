@@ -53,6 +53,7 @@ const config: Config = {
   ],
 
   themeConfig: {
+    
     // Replace with your project's social card
     //image: 'img/docusaurus-social-card.jpg',
     navbar: {
@@ -101,65 +102,11 @@ const config: Config = {
     },
     prism: {
       theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
-      additionalLanguages: [
-        "ruby",
-        "csharp",
-        "php",
-        "java",
-        "powershell",
-        "json",
-        "bash",
-      ],
-      languageTabs: [
-        {
-          highlight: "python",
-          language: "python",
-          logoClass: "python",
-        },
-        {
-          highlight: "bash",
-          language: "curl",
-          logoClass: "bash",
-        },
-        {
-          highlight: "csharp",
-          language: "csharp",
-          logoClass: "csharp",
-        },
-        {
-          highlight: "go",
-          language: "go",
-          logoClass: "go",
-        },
-        {
-          highlight: "javascript",
-          language: "nodejs",
-          logoClass: "nodejs",
-        },
-        {
-          highlight: "ruby",
-          language: "ruby",
-          logoClass: "ruby",
-        },
-        {
-          highlight: "php",
-          language: "php",
-          logoClass: "php",
-        },
-        {
-          highlight: "java",
-          language: "java",
-          logoClass: "java",
-          variant: "unirest",
-        },
-        {
-          highlight: "powershell",
-          language: "powershell",
-          logoClass: "powershell",
-        },
-      ],
-    },
+      darkTheme: prismThemes.dracula,  
+    },  
+    
+    
+    
   } satisfies Preset.ThemeConfig,
 };
 
