@@ -39,8 +39,8 @@ const config: Config = {
           docItemComponent: "@theme/ApiItem", // Derived from docusaurus-theme-openapi
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+         // editUrl:
+        //    'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         
        // api: {
@@ -104,6 +104,14 @@ const config: Config = {
               label: 'GitHub',
               href: 'https://github.com/brifle-de',
             },
+            {
+              label: 'Imprint',
+              href: 'https://www.brifle.de/imprint'
+            },
+            {
+              label: 'Privacy Policy',
+              href: 'Phttps://www.brifle.de/privacy-policy'
+            }
           ],
         },
       ],

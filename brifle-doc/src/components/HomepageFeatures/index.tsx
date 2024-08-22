@@ -10,32 +10,29 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
+    title: 'Trusted Users',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        All users are identified. This provides a secure environment for receivers and senders of documents.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: 'Paperless',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Instead of printing your documents on paper and send them via mail, integrate a digital communication channel to your tools.
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: 'Interactive',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Add interactive features such as signature or payment elements.
       </>
     ),
   },

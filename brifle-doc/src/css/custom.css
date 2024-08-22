@@ -27,10 +27,16 @@
   --ifm-color-primary-light: #c1f47f;
   --ifm-color-primary-lighter: #ccf892;
   --ifm-color-primary-lightest: #d5fd9f;
+  --ifm-badge-color: #173611;
   --ifm-navbar-background-color: #173611;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
+
+.footer--dark{
+  --ifm-footer-background-color: #173611 !important;
+
+}
 
 @font-face {
   font-family: 'Quicksand';
@@ -40,7 +46,7 @@
 
 
 * {
-  font-family: 'Twemoji Country Flags', 'Quicksand' !important;
+  font-family: 'Quicksand' !important;
 }
 
 
