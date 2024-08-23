@@ -1,0 +1,52 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Introduction 
+
+Brifle is a digital mail service designed to streamline communication for businesses. A digital mail service verifies the identity of senders and receivers of documents within a closed system. Please note that the data is not transmitted via email or other file exchange formats, such as SFTP. Instead, it is a closed system with a public API for developers to automate document transmission.
+
+## What can I transmit
+
+At this time, you can transmit all types of PDF files. We strongly encourage the use of archivable PDF files. You can add payable content to a document, for example an invoice. By marking a document as payable and adding payment data, the user will have access to the payment details more easily and will be able to pay the invoice via their online banking or via our integrated payment capabilities.
+
+It is recommended that documents be formatted in a simple style. This enables the recipient to read the documents more easily and allows our integrated AI features to translate the content into another destination language with greater ease. More guidelines will follow soon.
+
+## How is the receiver addressed?
+
+While physical mail uses the post address and the name of the receiver, Brifle uses an alternative approach. Our objective is to make as few changes as possible to existing systems. At present, we support the transfer of documents via:
+
+<Tabs
+  defaultValue="birthdata"
+  values={[
+    {label: 'Birth information', value: 'birthdata'},
+    {label: 'Email Address', value: 'email'},
+    {label: 'Phone Number', value: 'tel'},
+  ]}>
+<TabItem value="birthdata" label="Birthinformation">
+
+| Field          | Required |
+|----------------|----------|
+| First Name     |   yes      |
+| Last Name      |   yes      |
+| Name at Birth  |   no      |
+| Date of Birth  |   yes      |
+| Place of Birth |   yes      |
+
+
+</TabItem>
+  <TabItem value="email" label="Email">
+    | Field          | Required |
+    |----------------|----------|
+    | Email          |   yes      |
+    | Name           |   yes      |
+    | Date of Birth  |   no       |
+
+  </TabItem>
+  <TabItem value="tel" label="Phone">
+    | Field          | Required |
+    |----------------|----------|
+    | Phone number   |   yes      |
+    | Name           |   yes      |
+    | Date of Birth  |   no, but recommended       |
+  </TabItem>
+</Tabs>

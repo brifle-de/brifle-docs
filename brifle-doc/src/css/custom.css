@@ -13,7 +13,7 @@
   --ifm-color-primary-light: #33925d;
   --ifm-color-primary-lighter: #359962;
   --ifm-color-primary-lightest: #3cad6e;
-  --ifm-navbar-background-color: #173611;
+  --ifm-navbar-background-color: #202820;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
@@ -28,15 +28,21 @@
   --ifm-color-primary-lighter: #ccf892;
   --ifm-color-primary-lightest: #d5fd9f;
   --ifm-badge-color: #173611;
-  --ifm-navbar-background-color: #173611;
+  --ifm-navbar-background-color: #202820;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
 
-.footer--dark{
-  --ifm-footer-background-color: #173611 !important;
-
+.hero--dark {
+  background-color: #202820;
+  color: #fff;
 }
+
+
+.footer--dark{
+  --ifm-footer-background-color: #202820 !important;
+ 
+} 
 
 @font-face {
   font-family: 'Quicksand';
@@ -54,3 +60,170 @@
 {
   color: #173611 !important;
 }
+
+
+/**
+  * replace icons from third party side to local
+  */
+
+
+  .openapi-tabs__code-item--python::after {
+    content: "";
+    width: var(--code-tab-logo-width);
+    height: var(--code-tab-logo-height);
+    display: none;
+    background: unset !important;
+    margin-block: auto;
+  }
+  .openapi-tabs__code-item--python.active {
+    box-shadow: 0 0 0 3px var(--openapi-code-tab-shadow-color-python);
+    border-color: var(--openapi-code-tab-border-color-python);
+  }
+  
+ 
+
+  .openapi-tabs__code-item--go {
+    color: var(--ifm-color-info);
+  }
+  .openapi-tabs__code-item--go::after {
+    content: "";
+    display: none;
+    width: var(--code-tab-logo-width);
+    height: var(--code-tab-logo-height);
+    background: unset !important;
+    margin-block: auto;
+  }
+  .openapi-tabs__code-item--go.active {
+    box-shadow: 0 0 0 3px var(--openapi-code-tab-shadow-color-go);
+    border-color: var(--openapi-code-tab-border-color-go);
+  }
+  
+  .openapi-tabs__code-item--javascript {
+    color: var(--ifm-color-warning);
+  }
+  .openapi-tabs__code-item--javascript::after {
+    content: "";
+    display: none;
+    width: var(--code-tab-logo-width);
+    height: var(--code-tab-logo-height);
+    background: unset !important;
+    margin-block: auto;
+  }
+  .openapi-tabs__code-item--javascript.active {
+    box-shadow: 0 0 0 3px var(--openapi-code-tab-shadow-color-js);
+    border-color: var(--openapi-code-tab-border-color-js);
+  }
+  
+  .openapi-tabs__code-item--bash {
+    color: var(--ifm-color-danger);
+  }
+  .openapi-tabs__code-item--bash::after {
+    content: "";
+    display: none;
+    width: var(--code-tab-logo-width);
+    height: var(--code-tab-logo-height);
+    background: unset !important;
+    margin-block: auto;
+    background-color: var(--bash-background-color);
+    border-radius: var(--bash-border-radius);
+  }
+  .openapi-tabs__code-item--bash.active {
+    box-shadow: 0 0 0 3px var(--openapi-code-tab-shadow-color-bash);
+    border-color: var(--ifm-color-danger);
+  }
+  
+  .openapi-tabs__code-item--ruby {
+    color: var(--ifm-color-danger);
+  }
+  .openapi-tabs__code-item--ruby::after {
+    content: "";
+    display: none;
+    width: var(--code-tab-logo-width);
+    height: var(--code-tab-logo-height);
+    background: unset !important;
+    margin-block: auto;
+  }
+  .openapi-tabs__code-item--ruby.active {
+    box-shadow: 0 0 0 3px var(--openapi-code-tab-shadow-color-ruby);
+    border-color: var(--openapi-code-tab-border-color-ruby);
+  }
+  
+  .openapi-tabs__code-item--csharp {
+    color: var(--ifm-color-gray-500);
+  }
+  .openapi-tabs__code-item--csharp::after {
+    display: none;
+    content: "";
+    width: var(--code-tab-logo-width);
+    height: var(--code-tab-logo-height);
+    background: unset !important;
+    margin-block: auto;
+  }
+  .openapi-tabs__code-item--csharp.active {
+    box-shadow: 0 0 0 3px var(--openapi-code-tab-shadow-color-csharp);
+    border-color: var(--openapi-code-tab-border-color-csharp);
+  }
+  
+  .openapi-tabs__code-item--nodejs {
+    color: var(--ifm-color-success);
+  }
+  .openapi-tabs__code-item--nodejs::after {
+    content: "";
+    display: none;
+    width: var(--code-tab-logo-width);
+    height: var(--code-tab-logo-height);
+    background: unset!important;
+    margin-block: auto;
+  }
+  .openapi-tabs__code-item--nodejs.active {
+    box-shadow: 0 0 0 3px var(--opeanpi-code-tab-shadow-color-nodejs);
+    border-color: var(--openapi-code-tab-border-color-nodejs);
+  }
+  
+  .openapi-tabs__code-item--php {
+    color: var(--ifm-color-gray-500);
+  }
+  .openapi-tabs__code-item--php::after {
+    content: "";
+    display: none;
+    width: var(--code-tab-logo-width);
+    height: var(--code-tab-logo-height);
+    background: unset !important;
+    margin-block: auto;
+  }
+  .openapi-tabs__code-item--php.active {
+    box-shadow: 0 0 0 3px var(--openapi-code-tab-shadow-color-php);
+    border-color: var(--openapi-code-tab-border-color-php);
+  }
+  
+  .openapi-tabs__code-item--java {
+    color: var(--ifm-color-warning);
+  }
+  .openapi-tabs__code-item--java::after {
+    content: "";
+    display: none;
+    width: var(--code-tab-logo-width);
+    height: var(--code-tab-logo-height);
+    background: unset !important;
+    margin-block: auto;
+  }
+  .openapi-tabs__code-item--java.active {
+    box-shadow: 0 0 0 3px var(--openapi-code-tab-shadow-color-java);
+    border-color: var(--openapi-code-tab-border-color-java);
+  }
+  
+  .openapi-tabs__code-item--powershell {
+    color: var(--ifm-color-info);
+  }
+  .openapi-tabs__code-item--powershell::after {
+    content: "";
+    display: none;
+    width: var(--code-tab-logo-width);
+    height: var(--code-tab-logo-height);
+    background: unset !important;
+    margin-block: auto;
+  }
+
+  .tabs.openapi-tabs__code-list-container{
+    padding-bottom: 20px !important;
+  }

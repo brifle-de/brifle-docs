@@ -1,7 +1,7 @@
 # Api Keys
 
-In order to use the API capabilities it is required to authenticate against the API. For the Authentication process an identified party, either the sender or the receiver need to authenticate themself and grant permission. 
-To avoid that the sender or receiver needs to authenticate regulary and give a third party application permission to act on their behave, it user can issue an API key. This API Key is bound to a particular scope and is secured by a API Secret. 
+In order to utilise the API capabilities, it is necessary to authenticate against the API. The authentication process requires an identified party, either the sender or the receiver, to authenticate themselves and grant permission. 
+To streamline the authentication process and avoid the need for regular authentication and permission granting to third-party applications, users can issue an API key. This key is bound to a particular scope and secured by an API secret. 
 
 
 ## Generate a Key as a User
@@ -11,8 +11,8 @@ To avoid that the sender or receiver needs to authenticate regulary and give a t
 3. Click on Generate Key
 4. Note the Secret and the Key
 
-The generated Key with give permission to send mail and fetch an document via its ID.
+The generated key will enable the user to send emails and retrieve documents via their unique ID.
 
 ## Fetch Key as Third Party Provider 
 
-The user needs to submit their credentials on a secure channel to you. The way of obtaining the credentials depends on your application. You could provide an UI to get the credentials or fetch Environment Variables if those services are self hosted.
+The user is required to submit their credentials via a secure channel. The method of obtaining the credentials is dependent on the specific application in question. One potential solution is to provide a user interface for credential retrieval, or alternatively, to utilise environment variables if the services in question are self-hosted.

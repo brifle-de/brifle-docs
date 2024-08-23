@@ -12,17 +12,16 @@ The Code for the Java SDK can be found here:
 ```java
 Api api = new Api(ApiMode.SANDBOX);
 
-    String token = "from the auth method"
-
     // read the key and secret from the environment
     String secret = System.getProperty("BRIFLE_SECRET");
     String key = System.getProperty("BRIFLE_KEY");
 
-  
+    // authenticate with the credentials
     SuccessfulAuthenticationResponse response = api
         .authenticate(key, secret)
         .getData();
 
+    // this token is valid for 2 hours
     String token = response.getAccessToken();
     
 

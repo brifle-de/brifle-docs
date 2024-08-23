@@ -9,6 +9,7 @@ const sidebar: SidebarsConfig = {
     {
       type: "category",
       label: "Authentication",
+      collapsible: true,
       items: [
         {
           type: "doc",
@@ -27,6 +28,7 @@ const sidebar: SidebarsConfig = {
     {
       type: "category",
       label: "Content",
+      collapsible: true,
       items: [
         {
           type: "doc",
@@ -44,6 +46,25 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "api/web-api-controller-content-controller-send",
           label: "Send content",
+          className: "api-method post",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Signatures",
+      collapsible: true,
+      items: [
+        {
+          type: "doc",
+          id: "api/web-api-controller-signature-controller-export-signature",
+          label: "Export signature",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/web-api-controller-signature-controller-create-signature-reference",
+          label: "Create a signature reference",
           className: "api-method post",
         },
       ],

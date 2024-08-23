@@ -1,0 +1,9 @@
+version: "3.7"
+services:
+  docs: 
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    image: brifle.azurecr.io/devdocs:0.1.0
+    ports: 
+      - "8040:80"

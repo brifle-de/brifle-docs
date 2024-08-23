@@ -1,6 +1,8 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+// If you are using dotenv (https://www.npmjs.com/package/dotenv)
+import 'dotenv/config';
 
 const config: Config = {
   title: 'Brifle Docs',
@@ -12,6 +14,9 @@ const config: Config = {
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
+  customFields: {
+    enableMatomo: process.env.ENABLE_MATOMO === 'true',
+  },
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -20,8 +25,12 @@ const config: Config = {
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
+  scripts: process.env.ENABLE_MATOMO === 'true' ? [ 
+    "/js/matomo.js",
+  ] : [],
 
   // Even if you don't use internationalization, you can use this field to set
+ 
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
@@ -62,6 +71,11 @@ const config: Config = {
       respectPrefersColorScheme: false,
     },
 
+    metadata: [
+      {name: 'keywords', content: 'Brifle, API, Documentation, Post'},
+      {name: 'description', content: 'Explore the developer documentation for Brifle'},
+    ],
+
     // Replace with your project's social card
     //image: 'img/docusaurus-social-card.jpg',
     navbar: {
@@ -93,13 +107,17 @@ const config: Config = {
           items: [
             {
               label: 'Tutorial',
-              to: '/docs/intro',
+              to: '/docs/tutorials/intro',
             },
           ],
         },
         {
           title: 'More',
           items: [           
+            {
+              label: 'Homepage',
+              href: 'https://www.brifle.de',
+            },
             {
               label: 'GitHub',
               href: 'https://github.com/brifle-de',
@@ -110,12 +128,12 @@ const config: Config = {
             },
             {
               label: 'Privacy Policy',
-              href: 'Phttps://www.brifle.de/privacy-policy'
+              href: 'https://www.brifle.de/privacy-policy'
             }
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Brifle GmbH`,
+      copyright: `Copyright © ${new Date().getFullYear()} Brifle`,
     },
     prism: {
       theme: prismThemes.github,
@@ -131,45 +149,41 @@ const config: Config = {
       ],
     },  
     languageTabs: [
-      {
-        highlight: "python",
-        language: "python",
-        logoClass: "python",
-      },
+    
       {
         highlight: "bash",
         language: "curl",
-        logoClass: "bash",
+        logoClass: "bash-custom",
       },
       {
-        highlight: "csharp",
-        language: "csharp",
-        logoClass: "csharp",
+        highlight: "python",
+        language: "python",
+        logoClass: "python-custom",
       },
       {
         highlight: "go",
         language: "go",
-        logoClass: "go",
+        logoClass: "go-custom",
       },
       {
         highlight: "javascript",
         language: "nodejs",
-        logoClass: "nodejs",
+        logoClass: "nodejs-custom",
       },
       {
         highlight: "ruby",
         language: "ruby",
-        logoClass: "ruby",
+        logoClass: "ruby-custom",
       },
       {
         highlight: "php",
         language: "php",
-        logoClass: "php",
+        logoClass: "php-custom",
       },
       {
         highlight: "java",
         language: "java",
-        logoClass: "java",
+        logoClass: "java-custom",
         variant: "unirest",
       },
     ],
@@ -186,10 +200,10 @@ const config: Config = {
         config: {
           brifle_api: {
             specPath: "openapi.json",
-            outputDir: "docs/brifle", // No trailing slash
+            outputDir: "docs/api", 
             sidebarOptions: {
-              groupPathsBy: "tag",
-              categoryLinkSource: "tag",
+              groupPathsBy: "tag",      
+              sidebarCollapsible: true,
             },
 
           } satisfies OpenApiPlugin.Options,

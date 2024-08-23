@@ -1,7 +1,7 @@
 ---
 id: brifle
 title: "Brifle"
-description: "# Introduction"
+description: "## Introduction"
 sidebar_label: Introduction
 sidebar_position: 0
 hide_title: true
@@ -34,62 +34,55 @@ import Export from "@theme/ApiExplorer/Export";
   
 </ApiLogo>
 
-# Introduction
+## Introduction
 
-This documentation is for developers who want to interact with the Brifle System directly.
+This documentation is intended for developers who want to interact directly with the Brifle system.
 
-Brifle is following national German laws. In case of international deliveries you are responsible for fullfilling the law.
+Brifle follows national German laws. In case of international deliveries you are responsible for compliance with the law.
 
-# Terminology
+## Terminology
 
-#### Account
+### Account
 
-An account is associated with a legal person or company. There are two main account types: private and business.
+An account is associated with a legal person or company. There are two main types of account: personal and business.
 
-#### User
+### User
 
-A user is required to authorise and log in to the system. Each user is assigned at least one account. Business accounts can have multiple users.
+A user is required to authorise and log into the system. Each user has at least one account. Corporate accounts can have multiple users.
 
-#### Tenant
+### Tenant
 
-A tenant is defined as a sender. Each personal account is associated with a private tenant, while each business account is linked to at least one public tenant. It is possible for an account to be associated with multiple tenants, which is advantageous for companies that have distinct sections, each of which may send documents of a different type, such as the HR and Sales departments.
+A tenant is defined as a sender. Each personal account is associated with one private tenant, while each business account is associated with at least one public tenant. It is possible for an account to be associated with multiple tenants, which is useful for companies that have different departments, each of which may send different types of documents, such as HR and Sales.
 
-# Limitations
+## Limitations
 
-The maximum request size is 3MB for now.
+The maximum request size is currently 3MB.
 
-# Conventions
+## Conventions
 
-## Dates
+### Dates
 
-All date are return in the UTC time zone in iso8601 format
+All dates are returned in UTC time zone in iso8601 format.
 
-iso8601 format: `yyyy-mm-dd hh:mm:ss.sZ`.
+iso8601 format: `yyyy-mm-ddThh:mm:ss.sZ`.
 
 
-# Error Codes
+## Error Codes
 
 | Code   | Status | Message                 |
 | ------ | ------ | ----------------------- |
 | 40000  | 400    | bad request             |
-| 40001  | 400    | csr invalid             |
 | 40100  | 401    | unauthorized            |
 | 40101  | 401    | login Failed            |
 | 40102  | 401    | No access to tenant     |
 | 40103  | 401    | access not granted      |
-| 40104  | 401    | CSR rejected            |
 | 40105  | 401    | Not Access to Account   |
-| 40106  | 401    | Challenge started       |
 | 40300  | 403    | forbidden               |
-| 40301  | 403    | signature invalid       |
-| 40302  | 403    | already signed          |
 | 40400  | 404    | not found               |
 | 40401  | 404    | receiver not found      |
 | 40402  | 404    | tenant not found        |
 | 40403  | 404    | account not found       |
-| 40404  | 404    | certificate not found   |
 | 40405  | 404    | document not found      |
-| 40406  | 404    | request not found       |
 | 42200  | 422    | unprocessable entity    |
 | 42201  | 422    | content type not supported |
 | 42202  | 422    | document has wrong encoding |
@@ -100,7 +93,7 @@ iso8601 format: `yyyy-mm-dd hh:mm:ss.sZ`.
 
     
 
-# Authorization API
+## Authorization API
 
 In order to operate with the system you need to authorize with the system. For authentication we use oauth2. The account owner needs to setup an api key and generate an api secret. As ventor you can add the x-vendor header to mark that the process was initiated by you.
 
@@ -108,5 +101,46 @@ In order to operate with the system you need to authorize with the system. For a
 
 
 
-
+<div
+  style={{"marginBottom":"2rem"}}
+>
+  <Heading
+    id={"authentication"}
+    as={"h2"}
+    className={"openapi-tabs__heading"}
+    children={"Authentication"}
+  >
+  </Heading><SchemaTabs
+    className={"openapi-tabs__security-schemes"}
+  >
+    <TabItem
+      label={"HTTP: Bearer Auth"}
+      value={"bearer_auth"}
+    >
+      
+      
+      
+      
+      <div>
+        <table>
+          <tbody>
+            <tr>
+              <th>
+                Security Scheme Type:
+              </th><td>
+                http
+              </td>
+            </tr><tr>
+              <th>
+                HTTP Authorization Scheme:
+              </th><td>
+                bearer
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </TabItem>
+  </SchemaTabs>
+</div>
       

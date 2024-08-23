@@ -2,12 +2,12 @@
 
 ## 1. Create a Signature Reference
 
-A Signature Reference is used to organise multiple signatures into a single group. The generated Reference Identifier is than send along the documents to the users. All users can see all signatures of a signature reference group. 
+A Signature Reference combines multiple signatures into one group. The Reference Identifier is sent with the documents to the users. All users can see all signatures in a Signature Reference group. 
 
 ## 2. Collect the receivers and Prepare document
 
-Collect all required data of the receiver, such as their name and other identifiers, used for sending. Send the documents. Add the signature reference to the send requests and send the documents to the users.
+It is essential to collect all the necessary data from the recipient, including their name and other identifying information, in order to facilitate the delivery process. Once this has been completed, the documents can be sent. The signature reference should then be added to the send requests, after which the documents can be sent to the users.
 
 ## 3. The Receiver gets notified
 
-The receivers gets notified that a new signature is requested from them. 
+The receiver is informed that a new signature is required. 
