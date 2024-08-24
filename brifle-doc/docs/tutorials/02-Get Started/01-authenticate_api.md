@@ -3,7 +3,7 @@
 ## Fetch Bearer Token
 
 A bearer token can be requested via the following endpoint:
-- http://localhost:3000/docs/api/web-api-controller-auth-controller-create
+- [Login Endpoint](/docs/api/web-api-controller-auth-controller-create)
 
 
 ## Refresh Token

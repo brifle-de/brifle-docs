@@ -25,10 +25,6 @@ const config: Config = {
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  scripts: process.env.ENABLE_MATOMO === 'true' ? [ 
-    "/js/matomo.js",
-  ] : [],
-
   // Even if you don't use internationalization, you can use this field to set
  
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -80,6 +76,7 @@ const config: Config = {
     //image: 'img/docusaurus-social-card.jpg',
     navbar: {
       title: 'Brifle Docs',
+      hideOnScroll: true,
       logo: {
         alt: 'Brifle Docs Logo',
         src: 'img/brifle-docs.png',
@@ -210,6 +207,11 @@ const config: Config = {
         } satisfies Plugin.PluginOptions,
       },
     ],
+    [
+      "./matomo",
+      {       
+      },
+    ]
   ],
   themes: ["docusaurus-theme-openapi-docs"],
   stylesheets: [
