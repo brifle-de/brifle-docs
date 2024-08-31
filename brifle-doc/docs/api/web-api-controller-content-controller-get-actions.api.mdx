@@ -1,0 +1,607 @@
+---
+id: web-api-controller-content-controller-get-actions
+title: "Get Actions"
+description: "Get Actions"
+sidebar_label: "Get Actions"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "get api-method"
+info_path: docs/api/brifle
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get Actions"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/content/document/{id}/actions"}
+>
+  
+</MethodEndpoint>
+
+
+
+Get Actions
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"description":"document ID","example":"b0440b80-0857-43e9-8f13-723c8eb6a39c","in":"path","name":"id","required":true,"schema":{"type":"string","x-struct":null,"x-validate":null}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Content response
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                payments
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={true}
+                              className={"schemaItem"}
+                            >
+                              <details
+                                style={{}}
+                                className={"openapi-markdown__details"}
+                              >
+                                <summary
+                                  style={{}}
+                                >
+                                  <span
+                                    className={"openapi-schema__container"}
+                                  >
+                                    <strong
+                                      className={"openapi-schema__property"}
+                                    >
+                                      details
+                                    </strong><span
+                                      className={"openapi-schema__name"}
+                                    >
+                                       object
+                                    </span>
+                                  </span>
+                                </summary><div
+                                  style={{"marginLeft":"1rem"}}
+                                >
+                                  <SchemaItem
+                                    collapsible={false}
+                                    name={"amount"}
+                                    required={false}
+                                    schemaName={"number"}
+                                    qualifierMessage={undefined}
+                                    schema={{"description":"the amount to pay in the smallest unit of the currency","type":"number","x-struct":null,"x-validate":null}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"currency"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"description":"the currency of the payment","type":"string","x-struct":null,"x-validate":null}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"iban"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"description":"the iban of the payment","type":"string","x-struct":null,"x-validate":null}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"market"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"description":"the market of the payment. Important for the payment provider, e.g. Tink","type":"string","x-struct":null,"x-validate":null}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"reference"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"description":"the reference of the payment","type":"string","x-struct":null,"x-validate":null}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"tink_payment_id"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"description":"the payment id in the Tink system","type":"string","x-struct":null,"x-validate":null}}
+                                  >
+                                    
+                                  </SchemaItem>
+                                </div>
+                              </details>
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"link"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","x-struct":null,"x-validate":null}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={true}
+                              className={"schemaItem"}
+                            >
+                              <details
+                                style={{}}
+                                className={"openapi-markdown__details"}
+                              >
+                                <summary
+                                  style={{}}
+                                >
+                                  <span
+                                    className={"openapi-schema__container"}
+                                  >
+                                    <strong
+                                      className={"openapi-schema__property"}
+                                    >
+                                      tink_data
+                                    </strong><span
+                                      className={"openapi-schema__name"}
+                                    >
+                                       object
+                                    </span>
+                                  </span>
+                                </summary><div
+                                  style={{"marginLeft":"1rem"}}
+                                >
+                                  <SchemaItem
+                                    collapsible={false}
+                                    name={"client_id"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"description":"the client id for using the Tink API","type":"string","x-struct":null,"x-validate":null}}
+                                  >
+                                    
+                                  </SchemaItem>
+                                </div>
+                              </details>
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                signatures
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={true}
+                              className={"schemaItem"}
+                            >
+                              <details
+                                style={{}}
+                                className={"openapi-markdown__details"}
+                              >
+                                <summary
+                                  style={{}}
+                                >
+                                  <span
+                                    className={"openapi-schema__container"}
+                                  >
+                                    <strong
+                                      className={"openapi-schema__property"}
+                                    >
+                                      document_signatures
+                                    </strong><span
+                                      className={"openapi-schema__name"}
+                                    >
+                                       object
+                                    </span>
+                                  </span>
+                                </summary><div
+                                  style={{"marginLeft":"1rem"}}
+                                >
+                                  <SchemaItem
+                                    collapsible={false}
+                                    name={"signature_ids"}
+                                    required={false}
+                                    schemaName={"json"}
+                                    qualifierMessage={undefined}
+                                    schema={{"description":"array of signature ids","format":"json","type":"string","x-struct":null,"x-validate":null}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"signature_reference"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","x-struct":null,"x-validate":null}}
+                                  >
+                                    
+                                  </SchemaItem>
+                                </div>
+                              </details>
+                            </SchemaItem><SchemaItem
+                              collapsible={true}
+                              className={"schemaItem"}
+                            >
+                              <details
+                                style={{}}
+                                className={"openapi-markdown__details"}
+                              >
+                                <summary
+                                  style={{}}
+                                >
+                                  <span
+                                    className={"openapi-schema__container"}
+                                  >
+                                    <strong
+                                      className={"openapi-schema__property"}
+                                    >
+                                      embedded_signatures
+                                    </strong><span
+                                      className={"openapi-schema__name"}
+                                    >
+                                       object[]
+                                    </span>
+                                  </span>
+                                </summary><div
+                                  style={{"marginLeft":"1rem"}}
+                                >
+                                  <li>
+                                    <div
+                                      style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                                    >
+                                      Array [
+                                    </div>
+                                  </li><SchemaItem
+                                    collapsible={false}
+                                    name={"created_by"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","x-struct":null,"x-validate":null}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"created_date"}
+                                    required={false}
+                                    schemaName={"ISO 8601"}
+                                    qualifierMessage={undefined}
+                                    schema={{"format":"ISO 8601","type":"string","x-struct":null,"x-validate":null}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"document_signature_id"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","x-struct":null,"x-validate":null}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"due_date"}
+                                    required={false}
+                                    schemaName={"ISO 8601"}
+                                    qualifierMessage={undefined}
+                                    schema={{"format":"ISO 8601","type":"string","x-struct":null,"x-validate":null}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"field_name"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","x-struct":null,"x-validate":null}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"history"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","x-struct":null,"x-validate":null}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"purpose"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"description":"the purpose why the signature is needed. Important if a document requires multiple signatures from the same signer","type":"string","x-struct":null,"x-validate":null}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"request_date"}
+                                    required={false}
+                                    schemaName={"ISO 8601"}
+                                    qualifierMessage={undefined}
+                                    schema={{"format":"ISO 8601","type":"string","x-struct":null,"x-validate":null}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"requested_to"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","x-struct":null,"x-validate":null}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"signature_date"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","x-struct":null,"x-validate":null}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"signed_by"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","x-struct":null,"x-validate":null}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"signed_for"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","x-struct":null,"x-validate":null}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"value"}
+                                    required={false}
+                                    schemaName={"xml"}
+                                    qualifierMessage={undefined}
+                                    schema={{"format":"xml","type":"string","x-struct":null,"x-validate":null}}
+                                  >
+                                    
+                                  </SchemaItem><li>
+                                    <div
+                                      style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                                    >
+                                      ]
+                                    </div>
+                                  </li>
+                                </div>
+                              </details>
+                            </SchemaItem><SchemaItem
+                              collapsible={true}
+                              className={"schemaItem"}
+                            >
+                              <details
+                                style={{}}
+                                className={"openapi-markdown__details"}
+                              >
+                                <summary
+                                  style={{}}
+                                >
+                                  <span
+                                    className={"openapi-schema__container"}
+                                  >
+                                    <strong
+                                      className={"openapi-schema__property"}
+                                    >
+                                      signature_reference
+                                    </strong><span
+                                      className={"openapi-schema__name"}
+                                    >
+                                       object
+                                    </span>
+                                  </span>
+                                </summary><div
+                                  style={{"marginLeft":"1rem"}}
+                                >
+                                  <SchemaItem
+                                    collapsible={false}
+                                    name={"document_signatures"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","x-struct":null,"x-validate":null}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"managed_by"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","x-struct":null,"x-validate":null}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"signature_fields"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","x-struct":null,"x-validate":null}}
+                                  >
+                                    
+                                  </SchemaItem>
+                                </div>
+                              </details>
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"payments\": {\n    \"details\": {\n      \"amount\": 0,\n      \"currency\": \"string\",\n      \"iban\": \"string\",\n      \"market\": \"string\",\n      \"reference\": \"string\",\n      \"tink_payment_id\": \"string\"\n    },\n    \"link\": \"string\",\n    \"tink_data\": {\n      \"client_id\": \"string\"\n    }\n  },\n  \"signatures\": {\n    \"document_signatures\": {\n      \"signature_ids\": \"string\",\n      \"signature_reference\": \"string\"\n    },\n    \"embedded_signatures\": [\n      {\n        \"created_by\": \"string\",\n        \"created_date\": \"string\",\n        \"document_signature_id\": \"string\",\n        \"due_date\": \"string\",\n        \"field_name\": \"string\",\n        \"history\": \"string\",\n        \"purpose\": \"string\",\n        \"request_date\": \"string\",\n        \"requested_to\": \"string\",\n        \"signature_date\": \"string\",\n        \"signed_by\": \"string\",\n        \"signed_for\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"signature_reference\": {\n      \"document_signatures\": \"string\",\n      \"managed_by\": \"string\",\n      \"signature_fields\": \"string\"\n    }\n  }\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

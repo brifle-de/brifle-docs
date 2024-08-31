@@ -38,6 +38,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "api/web-api-controller-content-controller-get-actions",
+          label: "Get Actions",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "api/web-api-controller-content-controller-check-receiver",
           label: "Checks receiver",
           className: "api-method post",
