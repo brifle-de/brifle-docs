@@ -90,6 +90,12 @@ const config: Config = {
         },
         {
           type: 'docSidebar',
+          sidebarId: 'sdksSidebar',
+          position: 'left',
+          label: 'SDKs',
+        },
+        {
+          type: 'docSidebar',
           sidebarId: 'apiSidebar',
           label: 'API',
           position: 'left',
