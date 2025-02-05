@@ -14,4 +14,18 @@ gradle build -x test
 
 ## Gradle Installation
 
-This SDK is not yet available on Maven Central. You would need to compile it yourself and add it to your project. We will provide the dependency information once it is available on Maven Central.
+```groovy
+dependencies {
+    implementation group: 'de.brifle', name: 'brifle-sdk-java', version: '0.1.3'
+}
+```
+
+## Maven Installation
+
+```xml
+<dependency>
+    <groupId>de.brifle</groupId>
+    <artifactId>brifle-sdk-java</artifactId>
+    <version>0.1.3</version>
+</dependency>
+```

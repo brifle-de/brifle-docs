@@ -22,7 +22,7 @@ const FeatureList: FeatureItem[] = [
     title: 'Paperless',
     Svg: require('@site/static/img/intro_birds/2_inline.svg').default,
     description: (
-      <>
+      <> 
         Instead of printing your documents on paper and send them via mail, integrate a digital communication channel to your tools.
       </>
     ),
