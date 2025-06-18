@@ -4,6 +4,6 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
-    image: brifle.azurecr.io/devdocs:0.2.0
+    image: brifle.azurecr.io/devdocs:0.2.1
     ports: 
       - "8040:80"
