@@ -202,7 +202,7 @@ const config: Config = {
         docsPluginId: "classic",
         config: {
           brifle_api: {
-            specPath: "openapi.json",
+            specPath: "openapi.yaml",
             outputDir: "docs/api", 
             sidebarOptions: {
               groupPathsBy: "tag",      

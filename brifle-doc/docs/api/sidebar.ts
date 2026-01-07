@@ -115,6 +115,19 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "Status",
+      collapsible: true,
+      items: [
+        {
+          type: "doc",
+          id: "api/web-api-controller-status-controller-get-status",
+          label: "Get Status",
+          className: "api-method get",
+        },
+      ],
+    },
+    {
+      type: "category",
       label: "Tenants",
       collapsible: true,
       items: [

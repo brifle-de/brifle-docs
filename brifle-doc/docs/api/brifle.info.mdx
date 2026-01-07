@@ -64,36 +64,50 @@ iso8601 format: `yyyy-mm-ddThh:mm:ss.sZ`.
 
 ## Error Codes
 
-| Code   | Status | Message                 |
-| ------ | ------ | ----------------------- |
-| 40000  | 400    | bad request             |
-| 40100  | 401    | unauthorized            |
-| 40101  | 401    | login Failed            |
-| 40102  | 401    | No access to tenant     |
-| 40103  | 401    | access not granted      |
-| 40105  | 401    | Not Access to Account   |
-| 40300  | 403    | forbidden               |
-| 40400  | 404    | not found               |
-| 40401  | 404    | receiver not found      |
-| 40402  | 404    | tenant not found        |
-| 40403  | 404    | account not found       |
-| 40405  | 404    | document not found      |
-| 42200  | 422    | unprocessable entity    |
-| 42201  | 422    | content type not supported |
-| 42202  | 422    | document has wrong encoding |
-| 42203  | 422    | invalid iban            |
-| 50000  | 500    | internal error          |
+| Code | Status | Message |
+| ---- | ------ | ------- |
+| 40000 | 400 | bad request |
+| 40001 | 400 | csr invalid |
+| 40002 | 400 | invalid document state |
+| 40003 | 400 | already linked to account |
+| 40004 | 400 | owner can not be removed |
+| 40005 | 400 | team member already exists |
+| 40006 | 400 | invalid login parameters |
+| 40007 | 400 | invalid code |
+| 40100 | 401 | unauthorized |
+| 40101 | 401 | login failed |
+| 40102 | 401 | no access to tenant |
+| 40103 | 401 | access not granted |
+| 40104 | 401 | csr rejected |
+| 40105 | 401 | no access to account |
+| 40106 | 401 | challenge started |
+| 40300 | 403 | forbidden |
+| 40301 | 403 | signature invalid |
+| 40302 | 403 | already signed |
+| 40303 | 403 | already rejected |
+| 40304 | 403 | account creation not allowed |
+| 40305 | 403 | invalid scope |
+| 40400 | 404 | not found |
+| 40401 | 404 | receiver not found |
+| 40402 | 404 | tenant not found |
+| 40403 | 404 | account not found |
+| 40404 | 404 | certificate not found |
+| 40405 | 404 | document not found |
+| 40406 | 404 | request not found |
+| 40407 | 404 | cost center not found |
+| 40408 | 404 | postal address not found |
+| 40499 | 404 | feature not enabled |
+| 42200 | 422 | unprocessable entity |
+| 40901 | 409 | email already in use |
+| 42201 | 422 | content type not supported |
+| 42202 | 422 | document has wrong encoding |
+| 42203 | 422 | invalid iban |
+| 50000 | 500 | internal error |
 
-
-
-    
 
 ## Authorization API
 
 In order to operate with the system you need to authorize with the system. For authentication we use oauth2. The account owner needs to setup an api key and generate an api secret. As ventor you can add the x-vendor header to mark that the process was initiated by you.
-
-
-
 
 
 <div
