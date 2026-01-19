@@ -21,6 +21,25 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "Address",
+      collapsible: true,
+      items: [
+        {
+          type: "doc",
+          id: "api/web-api-controller-address-controller-parse-address",
+          label: "Parse",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "api/web-api-controller-address-controller-parse-and-expand-address",
+          label: "Parse and Expand",
+          className: "api-method post",
+        },
+      ],
+    },
+    {
+      type: "category",
       label: "Authentication",
       collapsible: true,
       items: [
@@ -45,6 +64,18 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
+          id: "api/web-api-controller-content-controller-get-cover-letter",
+          label: "Get Cover Letter Content",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/web-api-controller-content-controller-get-cover-letters-list",
+          label: "List Cover Letters",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "api/web-api-controller-content-controller-get",
           label: "Get content",
           className: "api-method get",
@@ -63,8 +94,20 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "api/web-api-controller-content-controller-get-delivery-status",
+          label: "Get Delivery Status",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "api/web-api-controller-content-controller-check-receiver",
           label: "Checks receiver",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "api/web-api-controller-content-controller-check-receiver-bulk",
+          label: "Checks multiple receivers",
           className: "api-method post",
         },
         {
@@ -115,19 +158,6 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Status",
-      collapsible: true,
-      items: [
-        {
-          type: "doc",
-          id: "api/web-api-controller-status-controller-get-status",
-          label: "Get Status",
-          className: "api-method get",
-        },
-      ],
-    },
-    {
-      type: "category",
       label: "Tenants",
       collapsible: true,
       items: [
@@ -142,6 +172,19 @@ const sidebar: SidebarsConfig = {
           id: "api/web-api-controller-tenant-controller-get-own",
           label: "Get my tenants",
           className: "api-method get",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Wallet",
+      collapsible: true,
+      items: [
+        {
+          type: "doc",
+          id: "api/web-api-controller-wallet-controller-create-wallet-item",
+          label: "Create Wallet Item",
+          className: "api-method post",
         },
       ],
     },

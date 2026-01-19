@@ -55,6 +55,23 @@ The maximum request size is currently 3MB.
 
 ## Conventions
 
+### Address Format
+
+For most address string we apply machine learning based address parsing. This makes the address format more flexible but not completely error proof. The recommended format for addresses is as follows:
+
+[StreetName] [HouseNumber], [PostalCode] [City], [Country]
+
+The country field is optional for domestic addresses.
+
+Examples:
+
+```
+Musterstraße 12, 12345 Musterstadt, Germany
+Hauptstr. 5, 10115 Berlin, DE
+Neue Allee 3a, 20095 Hamburg
+```
+
+
 ### Dates
 
 All dates are returned in UTC time zone in iso8601 format.

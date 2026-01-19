@@ -1,0 +1,71 @@
+---
+id: web-api-controller-address-controller-parse-address
+title: "Parse"
+description: "This endpoints allows it to parse a single address string into its components. It uses machine learning to identify the different parts of the address. Nevertheless, it depends on the order and format of the input address string. Therefore, it is recommended to provide addresses in a common format. The response includes the street, house number, postcode, city, and country. Invalid Postcodes or postcode that are not in use might fail to parse because of a lack of training data."
+sidebar_label: "Parse"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/api/brifle
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Parse"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/v1/address/parse"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+This endpoints allows it to parse a single address string into its components. It uses machine learning to identify the different parts of the address. Nevertheless, it depends on the order and format of the input address string. Therefore, it is recommended to provide addresses in a common format. The response includes the street, house number, postcode, city, and country. Invalid Postcodes or postcode that are not in use might fail to parse because of a lack of training data.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"example":{"address":"Hauptstraße 5A, 12345 Berlin, Germany"},"properties":{"address":{"description":"The address to be parsed","example":"Hauptstraße 5A, 12345 Berlin, Germany","type":"string","x-struct":null,"x-validate":null}},"required":["address"],"title":"ParseAddressRequest","type":"object","x-struct":null,"x-validate":null}}},"description":"Login params","required":false}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"content":{"application/json":{"schema":{"example":{"city":"Berlin","country":"Germany","house_number":"5A","postcode":"12345","street":"Hauptstraße"},"properties":{"city":{"description":"The city","example":"Berlin","type":"string","x-struct":null,"x-validate":null},"country":{"description":"The country","example":"Germany","type":"string","x-struct":null,"x-validate":null},"house_number":{"description":"The house number","example":"5A","type":"string","x-struct":null,"x-validate":null},"postcode":{"description":"The postal code","example":"12345","type":"string","x-struct":null,"x-validate":null},"street":{"description":"The street name","example":"Hauptstraße","type":"string","x-struct":null,"x-validate":null}},"required":["street","house_number","postcode","city","country"],"title":"ParseAddressResponse","type":"object","x-struct":null,"x-validate":null}}},"description":"Parsing Response"}}}
+>
+  
+</StatusCodes>
+
+
+      

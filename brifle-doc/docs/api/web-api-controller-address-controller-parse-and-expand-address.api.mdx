@@ -1,0 +1,71 @@
+---
+id: web-api-controller-address-controller-parse-and-expand-address
+title: "Parse and Expand"
+description: "This endpoint allows it to parse and expand a single address string into its components including additional details. It uses machine learning to identify the different parts of the address. Nevertheless, it depends on the order and format of the input address string. Therefore, it is recommended to provide addresses in a common format. The response includes the street, house number, postcode, city, and country. Invalid Postcodes or postcode that are not in use might fail to parse because of a lack of training data. The expansion includes resolve common abbreviations such as 'Str.' to 'Straße'."
+sidebar_label: "Parse and Expand"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/api/brifle
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Parse and Expand"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/v1/address/parse_and_expand"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+This endpoint allows it to parse and expand a single address string into its components including additional details. It uses machine learning to identify the different parts of the address. Nevertheless, it depends on the order and format of the input address string. Therefore, it is recommended to provide addresses in a common format. The response includes the street, house number, postcode, city, and country. Invalid Postcodes or postcode that are not in use might fail to parse because of a lack of training data. The expansion includes resolve common abbreviations such as 'Str.' to 'Straße'.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"example":{"address":"Hauptstraße 5A, 12345 Berlin, Germany"},"properties":{"address":{"description":"The address to be parsed","example":"Hauptstraße 5A, 12345 Berlin, Germany","type":"string","x-struct":null,"x-validate":null}},"required":["address"],"title":"ParseAddressRequest","type":"object","x-struct":null,"x-validate":null}}},"description":"Login params","required":false}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"content":{"application/json":{"schema":{"example":[{"city":"Berlin","country":"Germany","house_number":"5A","postcode":"12345","street":"Hauptstraße"},{"city":"Springwood","country":"USA","house_number":"13","postcode":"54321","street":"Elm Street"}],"items":{"example":{"city":"Berlin","country":"Germany","house_number":"5A","postcode":"12345","street":"Hauptstraße"},"properties":{"city":{"description":"The city","example":"Berlin","type":"string","x-struct":null,"x-validate":null},"country":{"description":"The country","example":"Germany","type":"string","x-struct":null,"x-validate":null},"house_number":{"description":"The house number","example":"5A","type":"string","x-struct":null,"x-validate":null},"postcode":{"description":"The postal code","example":"12345","type":"string","x-struct":null,"x-validate":null},"street":{"description":"The street name","example":"Hauptstraße","type":"string","x-struct":null,"x-validate":null}},"required":["street","house_number","postcode","city","country"],"title":"ParseAddressResponse","type":"object","x-struct":null,"x-validate":null},"title":"ParseAddressArrayResponse","type":"array","x-struct":null,"x-validate":null}}},"description":"Parsing and Expansion Response"}}}
+>
+  
+</StatusCodes>
+
+
+      

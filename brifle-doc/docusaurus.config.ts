@@ -127,11 +127,11 @@ const config: Config = {
             },
             {
               label: 'Imprint',
-              href: 'https://www.brifle.de/imprint'
+              href: 'https://www.brifle.de/en/imprint'
             },
             {
               label: 'Privacy Policy',
-              href: 'https://www.brifle.de/privacy-policy'
+              href: 'https://www.brifle.de/en/privacy-policy'
             }
           ],
         },
