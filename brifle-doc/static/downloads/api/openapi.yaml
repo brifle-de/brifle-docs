@@ -234,11 +234,11 @@ components:
           house_number: 5A
           postcode: '12345'
           street: Hauptstraße
-        - city: Springwood
-          country: USA
-          house_number: '13'
-          postcode: '54321'
-          street: Elm Street
+        - city: Berlin
+          country: Germany
+          house_number: 5A
+          postcode: '12345'
+          street: Hauptstrasse
       items:
         example:
           city: Berlin
@@ -394,6 +394,7 @@ components:
           description: Type of the wallet item
           enum:
             - proof_of_ownership
+            - proof_of_permission
           type: string
           x-struct:
           x-validate:
@@ -775,24 +776,28 @@ components:
         email:
           description: Email Address
           example: john.doe@example.com
+          minLength: 3
           type: string
           x-struct:
           x-validate:
         first_name:
           description: First Name, it is only applied if full name is not set and only for email and tel
           example: Max
+          minLength: 1
           type: string
           x-struct:
           x-validate:
         full_name:
           description: Full Name, it can be either Firstname and Lastname or Company Name. The last component is considered the Lastname. Be aware that the last name must be an exact match. It is only applied to email and tel
           example: Max Mustermann
+          minLength: 2
           type: string
           x-struct:
           x-validate:
         last_name:
           description: Last Name, it is only applied if full name is not set and only for email and tel
           example: Mustermann
+          minLength: 1
           type: string
           x-struct:
           x-validate:
@@ -801,12 +806,14 @@ components:
         tel:
           description: Phone Number
           example: '+491234567890'
+          minLength: 3
           type: string
           x-struct:
           x-validate:
         vat_id:
           description: VAT ID
           example: DE123456789
+          minLength: 5
           type: string
           x-struct:
           x-validate:
@@ -1417,6 +1424,69 @@ components:
       type: object
       x-struct: Elixir.Web.Doc.Responses.Content.ContentGetDeliveryStatusResponse
       x-validate:
+    WalletMetaResponse:
+      description: Wallet Item Metadata Response
+      properties:
+        has_owner:
+          description: Indicates if the wallet item has an owner assigned. Once assigned the item cannot be revoked or updated
+          example: false
+          type: boolean
+          x-struct:
+          x-validate:
+        id:
+          description: The ID of the wallet item
+          example: 00205a17-865f-4390-95e9-4b5feb146afc
+          type: string
+          x-struct:
+          x-validate:
+        immutable:
+          description: Indicates if the wallet item is immutable before assignment
+          example: false
+          type: boolean
+          x-struct:
+          x-validate:
+        inserted_at:
+          description: Timestamp when the wallet item was created
+          example: 2026-01-22T21:27:00
+          format: date-time
+          type: string
+          x-struct:
+          x-validate:
+        issuer:
+          description: The ID of the issuer of the wallet item
+          example: ecc21368-2327-481b-a669-5424fb1d7329
+          type: string
+          x-struct:
+          x-validate:
+        retention_period_days:
+          description: Number of days the wallet item is retained
+          example: 30
+          type: integer
+          x-struct:
+          x-validate:
+        subject:
+          description: The subject of the wallet item
+          example: Test Subject
+          type: string
+          x-struct:
+          x-validate:
+        type:
+          description: The type of the wallet item
+          example: proof_of_ownership
+          type: string
+          x-struct:
+          x-validate:
+        updated_at:
+          description: Timestamp when the wallet item was last updated
+          example: 2026-01-22T21:27:00
+          format: date-time
+          type: string
+          x-struct:
+          x-validate:
+      title: WalletMetaResponse
+      type: object
+      x-struct: Elixir.Web.Doc.Responses.Wallet.WalletMetaResponse
+      x-validate:
     Content:
       properties:
         content:
@@ -1486,6 +1556,17 @@ components:
       title: ApiSendContentReceiverBirthInformation
       type: object
       x-struct: Elixir.Web.Doc.Requests.Content.ApiSendContent.ApiSendContentReceiverBirthInformation
+      x-validate:
+    WalletItemResponse:
+      description: A Wallet Item
+      properties:
+        data:
+          $ref: '#/components/schemas/WalletDataResponse'
+        meta:
+          $ref: '#/components/schemas/WalletMetaResponse'
+      title: WalletItemResponse
+      type: object
+      x-struct: Elixir.Web.Doc.Responses.Wallet.WalletItemResponse
       x-validate:
     WalletInfo:
       description: This is an experimental feature. For more information contact the Brifle team.
@@ -1623,6 +1704,41 @@ components:
       title: RevokeTokenRequest
       type: object
       x-struct: Elixir.Web.Doc.Requests.Auth.RevokeTokenRequest
+      x-validate:
+    WalletDataResponse:
+      description: Wallet Item Data Response
+      properties:
+        elements:
+          description: The data elements of the wallet item
+          items:
+            properties:
+              name:
+                description: The name of the data element
+                example: a text value
+                type: string
+                x-struct:
+                x-validate:
+              type:
+                description: The type of the data element
+                example: text
+                type: string
+                x-struct:
+                x-validate:
+              value:
+                description: The value of the data element
+                example: a string data record
+                type: string
+                x-struct:
+                x-validate:
+            type: object
+            x-struct:
+            x-validate:
+          type: array
+          x-struct:
+          x-validate:
+      title: WalletDataResponse
+      type: object
+      x-struct: Elixir.Web.Doc.Responses.Wallet.WalletDataResponse
       x-validate:
     ApiSendContentSignatureInfo:
       properties:
@@ -2142,7 +2258,7 @@ paths:
     get:
       callbacks: {}
       description: |-
-        Please note that for security reasons, not all fields are returns. As a sender you won't have access to receiver_state, and as receiver no access to the sender_state.
+        Please note that for security reasons, not all fields are returned. As a sender you won't have access to receiver_state, and as receiver no access to the sender_state.
             
          read is set to true once, the document was opened for the first time either by the mobile or webclient or via the API using the read flag. Once it is set to true it cannot be set to false.
       operationId: Web.Api.Controller.ContentController.get
@@ -2761,20 +2877,90 @@ paths:
           content:
             application/json:
               schema:
+                $ref: '#/components/schemas/WalletMetaResponse'
+          description: Wallet Item Created
+      security:
+        - bearer_auth: []
+      summary: Create Wallet Item
+      tags:
+        - Wallet
+  /v1/wallet/items/issued/{tenant}/read/{id}:
+    get:
+      callbacks: {}
+      operationId: Web.Api.Controller.WalletController.read_wallet_item
+      parameters:
+        - description: Tenent/Sender ID
+          example: b0440b80-0857-43e9-8f13-723c8eb6a39c
+          in: path
+          name: tenant
+          required: true
+          schema:
+            type: string
+            x-struct:
+            x-validate:
+        - description: Wallet Item ID
+          example: witem_1234567890
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            x-struct:
+            x-validate:
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WalletItemResponse'
+          description: Wallet Item Retrieved
+      security:
+        - bearer_auth: []
+      summary: Read Wallet Item
+      tags:
+        - Wallet
+  /v1/wallet/items/issued/{tenant}/revoke/{id}:
+    delete:
+      callbacks: {}
+      operationId: Web.Api.Controller.WalletController.delete_wallet_item
+      parameters:
+        - description: Tenent/Sender ID
+          example: b0440b80-0857-43e9-8f13-723c8eb6a39c
+          in: path
+          name: tenant
+          required: true
+          schema:
+            type: string
+            x-struct:
+            x-validate:
+        - description: Wallet Item ID
+          example: witem_1234567890
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            x-struct:
+            x-validate:
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
                 properties:
-                  id:
-                    description: The ID of the created wallet item
-                    example: witem_1234567890
+                  status:
+                    description: The status of the deletion
+                    example: deleted
                     type: string
                     x-struct:
                     x-validate:
                 type: object
                 x-struct:
                 x-validate:
-          description: Wallet Item Created
+          description: Wallet Item Deleted
       security:
         - bearer_auth: []
-      summary: Create Wallet Item
+      summary: Revoke Wallet Item
       tags:
         - Wallet
 security: []

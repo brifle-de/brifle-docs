@@ -227,3 +227,8 @@
   .tabs.openapi-tabs__code-list-container{
     padding-bottom: 20px !important;
   }
+
+  .openapi__method-endpoint .badge--success{
+    background-color: #249fb5;
+    border: #173611;
+  }

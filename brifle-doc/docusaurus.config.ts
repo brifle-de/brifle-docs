@@ -202,12 +202,14 @@ const config: Config = {
         docsPluginId: "classic",
         config: {
           brifle_api: {
-            specPath: "openapi.yaml",
+            specPath: "./static/downloads/api/openapi.yaml",
             outputDir: "docs/api", 
             sidebarOptions: {
               groupPathsBy: "tag",      
               sidebarCollapsible: true,
             },
+            showSchemas: false,
+            downloadUrl: "/downloads/api/openapi.yaml",
 
           } satisfies OpenApiPlugin.Options,
         } satisfies Plugin.PluginOptions,

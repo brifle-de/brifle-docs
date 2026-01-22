@@ -186,6 +186,18 @@ const sidebar: SidebarsConfig = {
           label: "Create Wallet Item",
           className: "api-method post",
         },
+        {
+          type: "doc",
+          id: "api/web-api-controller-wallet-controller-read-wallet-item",
+          label: "Read Wallet Item",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/web-api-controller-wallet-controller-delete-wallet-item",
+          label: "Revoke Wallet Item",
+          className: "api-method delete",
+        },
       ],
     },
   ],
