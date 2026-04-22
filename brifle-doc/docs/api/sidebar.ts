@@ -64,14 +64,26 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "api/web-api-controller-content-controller-get-cover-letter",
-          label: "Get Cover Letter Content",
-          className: "api-method get",
+          id: "api/web-api-controller-content-controller-upload-cover-letter",
+          label: "Upload Custom Cover Letter",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "api/web-api-controller-content-controller-delete-cover-letter",
+          label: "Delete Custom Cover Letter",
+          className: "api-method delete",
         },
         {
           type: "doc",
           id: "api/web-api-controller-content-controller-get-cover-letters-list",
           label: "List Cover Letters",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/web-api-controller-content-controller-get-cover-letter",
+          label: "Get Cover Letter Content",
           className: "api-method get",
         },
         {
@@ -97,6 +109,12 @@ const sidebar: SidebarsConfig = {
           id: "api/web-api-controller-content-controller-get-delivery-status",
           label: "Get Delivery Status",
           className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/web-api-controller-content-controller-preview-paper-mail",
+          label: "Preview Paper Mail",
+          className: "api-method post",
         },
         {
           type: "doc",
@@ -153,6 +171,19 @@ const sidebar: SidebarsConfig = {
           id: "api/web-api-controller-signature-controller-create-signature-reference",
           label: "Create a signature reference",
           className: "api-method post",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Status",
+      collapsible: true,
+      items: [
+        {
+          type: "doc",
+          id: "api/web-api-controller-status-controller-get-status",
+          label: "Get Status",
+          className: "api-method get",
         },
       ],
     },

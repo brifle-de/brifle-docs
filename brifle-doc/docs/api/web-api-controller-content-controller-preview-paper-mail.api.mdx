@@ -1,0 +1,71 @@
+---
+id: web-api-controller-content-controller-preview-paper-mail
+title: "Preview Paper Mail"
+description: "Renders the document like it is sent to the Deutsche Post, but doesn't send it. This is for preview purposes. The content must be in base64 encoding and the response will be a PDF file."
+sidebar_label: "Preview Paper Mail"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/api/brifle
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Preview Paper Mail"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/v1/content/preview/{tenant}/paper_mail"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Renders the document like it is sent to the Deutsche Post, but doesn't send it. This is for preview purposes. The content must be in base64 encoding and the response will be a PDF file.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"description":"Tenent/Sender ID","example":"b0440b80-0857-43e9-8f13-723c8eb6a39c","in":"path","name":"tenant","required":true,"schema":{"type":"string","x-struct":null,"x-validate":null}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"description":"Request schema for sending a content preview as paper mail.","properties":{"body":{"description":"Schema for the body content included in the paper mail.","properties":{"content":{"description":"Base64 encoded content to be sent as paper mail.","type":"string","x-struct":null,"x-validate":null},"type":{"description":"MIME type of the content (e.g., application/pdf).","type":"string","x-struct":null,"x-validate":null}},"required":["type","content"],"title":"Body","type":"object","x-struct":"Elixir.Web.Doc.Requests.Content.Api.SendContentPreviewPapermail.PreviewPapermailBody","x-validate":null},"cover_letter":{"description":"Schema for the cover letter included in the paper mail.","properties":{"data":{"description":"Custom data for the cover letter.","nullable":true,"type":"string","x-struct":null,"x-validate":null},"enable":{"description":"Whether to include a cover letter.","type":"boolean","x-struct":null,"x-validate":null},"name":{"description":"Name of the cover letter template. If data is provided, this name is ignored.","type":"string","x-struct":null,"x-validate":null},"type":{"description":"Type of the cover letter, default = predefined templates, custom = self-defined","enum":["default","custom"],"type":"string","x-struct":null,"x-validate":null}},"required":["enable","name","type"],"title":"PreviewPapermailCoverLetter","type":"object","x-struct":"Elixir.Web.Doc.Requests.Content.Api.SendContentPreviewPapermail.PreviewPapermailCoverLetter","x-validate":null},"to":{"description":"Schema for the recipient of the paper mail.","properties":{"address_line1":{"description":"First line of the recipient's address.","type":"string","x-struct":null,"x-validate":null},"address_line2":{"description":"Second line of the recipient's address.","type":"string","x-struct":null,"x-validate":null},"city":{"description":"City of the recipient.","type":"string","x-struct":null,"x-validate":null},"country":{"description":"Country of the recipient.","type":"string","x-struct":null,"x-validate":null},"postal_code":{"description":"Postal code of the recipient.","type":"string","x-struct":null,"x-validate":null}},"required":["address_line1","city","postal_code","country"],"title":"PreviewPapermailReceiver","type":"object","x-struct":"Elixir.Web.Doc.Requests.Content.Api.SendContentPreviewPapermail.PreviewPapermailReceiver","x-validate":null}},"required":["to","cover_letter","body"],"title":"SendContentPreviewPapermailRequest","type":"object","x-struct":"Elixir.Web.Doc.Requests.Content.Api.SendContentPreviewPapermail.SendContentPreviewPapermailRequest","x-validate":null}}},"description":"Content params","required":false}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"content":{"application/pdf":{"schema":{"description":"The rendered paper mail content in PDF format.","format":"binary","type":"string","x-struct":null,"x-validate":null}}},"description":"Paper Mail Preview response"},"400":{"content":{"application/json":{"schema":{"properties":{"code":{"example":40009,"type":"number","x-struct":null,"x-validate":null},"message":{"example":"failed to prepare physical content for letter","type":"string","x-struct":null,"x-validate":null},"status":{"example":400,"type":"number","x-struct":null,"x-validate":null}},"title":"ErrorResponse40009","type":"object","x-struct":null,"x-validate":null}}},"description":"Failed to prepare content for letter"},"401":{"content":{"application/json":{"schema":{"properties":{"code":{"example":40102,"type":"number","x-struct":null,"x-validate":null},"message":{"example":"No access to tenant","type":"string","x-struct":null,"x-validate":null},"status":{"example":401,"type":"number","x-struct":null,"x-validate":null}},"title":"ErrorResponse40102","type":"object","x-struct":null,"x-validate":null}}},"description":"Unauthorized"},"404":{"content":{"application/json":{"schema":{"properties":{"code":{"example":40401,"type":"number","x-struct":null,"x-validate":null},"message":{"example":"receiver not found","type":"string","x-struct":null,"x-validate":null},"status":{"example":404,"type":"number","x-struct":null,"x-validate":null}},"title":"ErrorResponse40401","type":"object","x-struct":null,"x-validate":null}}},"description":"Not found"},"422":{"content":{"application/json":{"schema":{"properties":{"code":{"example":42201,"type":"number","x-struct":null,"x-validate":null},"message":{"example":"content type not supported","type":"string","x-struct":null,"x-validate":null},"status":{"example":422,"type":"number","x-struct":null,"x-validate":null}},"title":"ErrorResponse42201","type":"object","x-struct":null,"x-validate":null}}},"description":"Invalid content"}}}
+>
+  
+</StatusCodes>
+
+
+      

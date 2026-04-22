@@ -192,32 +192,7 @@ components:
         elements:
           description: Array of data elements
           items:
-            properties:
-              name:
-                description: Name of the data element
-                type: string
-                x-struct:
-                x-validate:
-              type:
-                description: Type of the data element, e.g. 'text' or 'url'
-                enum:
-                  - text
-                  - url
-                type: string
-                x-struct:
-                x-validate:
-              value:
-                description: Value of the data element
-                type: string
-                x-struct:
-                x-validate:
-            type: object
-            x-struct:
-            x-validate:
-          required:
-            - type
-            - name
-            - value
+            $ref: '#/components/schemas/DataElement'
           type: array
           x-struct:
           x-validate:
@@ -322,6 +297,63 @@ components:
       type: object
       x-struct: Elixir.Web.Doc.Responses.Content.ContentCreateResponse
       x-validate:
+    Row:
+      description: A row in the wallet item style
+      properties:
+        left:
+          description: The reference ID of the data element to be shown on the left side of the row
+          type: string
+          x-struct:
+          x-validate:
+        right:
+          description: The reference ID of the data element to be shown on the right side of the row
+          type: string
+          x-struct:
+          x-validate:
+      required:
+        - left
+        - right
+      title: Row
+      type: object
+      x-struct: Elixir.Web.Doc.Requests.Wallet.WalletStyle.Row
+      x-validate:
+    PreviewPapermailReceiver:
+      description: Schema for the recipient of the paper mail.
+      properties:
+        address_line1:
+          description: First line of the recipient's address.
+          type: string
+          x-struct:
+          x-validate:
+        address_line2:
+          description: Second line of the recipient's address.
+          type: string
+          x-struct:
+          x-validate:
+        city:
+          description: City of the recipient.
+          type: string
+          x-struct:
+          x-validate:
+        country:
+          description: Country of the recipient.
+          type: string
+          x-struct:
+          x-validate:
+        postal_code:
+          description: Postal code of the recipient.
+          type: string
+          x-struct:
+          x-validate:
+      required:
+        - address_line1
+        - city
+        - postal_code
+        - country
+      title: PreviewPapermailReceiver
+      type: object
+      x-struct: Elixir.Web.Doc.Requests.Content.Api.SendContentPreviewPapermail.PreviewPapermailReceiver
+      x-validate:
     CreateSignatureReferenceRequest:
       properties:
         fields:
@@ -361,24 +393,30 @@ components:
           $ref: '#/components/schemas/WalletDataElement'
         expires_at:
           description: The expiration time of the wallet item (ISO 8601 format), set to null for no expiration
+          example: 2024-01-01T00:00:00Z
           format: date-time
+          nullable: true
           type: string
           x-struct:
           x-validate:
         export_wallet:
           $ref: '#/components/schemas/ExportWallet'
         immutable:
+          default: false
           description: If set to false, the element can be updated until it is assigned to a user wallet, otherwise it is immutable once created it cannot be changed
           type: boolean
           x-struct:
           x-validate:
         not_before:
           description: The time before which the wallet item is not valid (ISO 8601 format)
+          example: 2024-01-01T00:00:00Z
           format: date-time
+          nullable: true
           type: string
           x-struct:
           x-validate:
         retention_period_days:
+          default: 30
           description: Number of days to retain the wallet item if it is unassigned, defaults to 30 days
           type: integer
           x-struct:
@@ -415,17 +453,9 @@ components:
           type: string
           x-struct:
           x-validate:
-        background_image:
-          description: Base64 encoded image for background
-          example: iVBORw0KGgoAAAANSUhEUgAA...
-          format: base64
-          type: string
-          x-struct:
-          x-validate:
-        logo:
-          description: Base64 encoded image for logo
-          example: iVBORw0KGgoAAAANSUhEUgAA...
-          format: base64
+        on_background_color:
+          description: Hex color code for text/icons on background color
+          example: '#333333'
           type: string
           x-struct:
           x-validate:
@@ -448,9 +478,16 @@ components:
           x-struct:
           x-validate:
         primary_qr_code_data:
-          description: The name of the data element to be used for the primary QR code. This data is shown in the preview card of the wallet item. It also used when exported to another wallet that supports QR codes.
-          example: https://example.com/qrdata
+          description: The reference id of the data element to be used for the primary QR code. This data is shown in the preview card of the wallet item. It also used when exported to another wallet that supports QR codes.
+          example: data_element_reference_id
           type: string
+          x-struct:
+          x-validate:
+        rows:
+          description: Array of rows to be displayed in the wallet item. If not specified each data will be shown in a separate row.
+          items:
+            $ref: '#/components/schemas/Row'
+          type: array
           x-struct:
           x-validate:
         secondary_color:
@@ -645,6 +682,36 @@ components:
       type: object
       x-struct: Elixir.Web.Doc.Responses.Content.CoverLettersOverviewResponse
       x-validate:
+    StatusResponse:
+      properties:
+        features:
+          items:
+            type: string
+            x-struct:
+            x-validate:
+          type: array
+          x-struct:
+          x-validate:
+        service:
+          type: string
+          x-struct:
+          x-validate:
+        status:
+          type: string
+          x-struct:
+          x-validate:
+        timestamp:
+          type: string
+          x-struct:
+          x-validate:
+        version:
+          type: string
+          x-struct:
+          x-validate:
+      title: StatusResponse
+      type: object
+      x-struct: Elixir.Web.Doc.Responses.Status.StatusResponse
+      x-validate:
     ParseAddressRequest:
       example:
         address: Hauptstraße 5A, 12345 Berlin, Germany
@@ -661,6 +728,23 @@ components:
       type: object
       x-struct:
       x-validate:
+    SendContentPreviewPapermailRequest:
+      description: Request schema for sending a content preview as paper mail.
+      properties:
+        body:
+          $ref: '#/components/schemas/Body'
+        cover_letter:
+          $ref: '#/components/schemas/PreviewPapermailCoverLetter'
+        to:
+          $ref: '#/components/schemas/PreviewPapermailReceiver'
+      required:
+        - to
+        - cover_letter
+        - body
+      title: SendContentPreviewPapermailRequest
+      type: object
+      x-struct: Elixir.Web.Doc.Requests.Content.Api.SendContentPreviewPapermail.SendContentPreviewPapermailRequest
+      x-validate:
     ApiSendContentPaymentInfo:
       properties:
         details:
@@ -674,6 +758,26 @@ components:
       title: ApiSendContentPaymentInfo
       type: object
       x-struct: Elixir.Web.Doc.Requests.Content.ApiSendContent.ApiSendContentPaymentInfo
+      x-validate:
+    Body:
+      description: Schema for the body content included in the paper mail.
+      properties:
+        content:
+          description: Base64 encoded content to be sent as paper mail.
+          type: string
+          x-struct:
+          x-validate:
+        type:
+          description: MIME type of the content (e.g., application/pdf).
+          type: string
+          x-struct:
+          x-validate:
+      required:
+        - type
+        - content
+      title: Body
+      type: object
+      x-struct: Elixir.Web.Doc.Requests.Content.Api.SendContentPreviewPapermail.PreviewPapermailBody
       x-validate:
     ContentGetDeliveryCertificateResponse:
       properties:
@@ -712,6 +816,27 @@ components:
       title: ContentGetDeliveryCertificateResponse
       type: object
       x-struct: Elixir.Web.Doc.Responses.Content.ContentGetDeliveryCertificateResponse
+      x-validate:
+    ErrorResponse42201:
+      properties:
+        code:
+          example: 42201
+          type: number
+          x-struct:
+          x-validate:
+        message:
+          example: content type not supported
+          type: string
+          x-struct:
+          x-validate:
+        status:
+          example: 422
+          type: number
+          x-struct:
+          x-validate:
+      title: ErrorResponse42201
+      type: object
+      x-struct:
       x-validate:
     ExportWallet:
       description: Settings for exporting the wallet item to external wallets
@@ -756,6 +881,27 @@ components:
       title: SignatureReference
       type: object
       x-struct: Elixir.Web.Doc.Responses.Content.SignatureReference
+      x-validate:
+    ErrorResponse40001:
+      properties:
+        code:
+          example: 40001
+          type: number
+          x-struct:
+          x-validate:
+        message:
+          example: csr invalid
+          type: string
+          x-struct:
+          x-validate:
+        status:
+          example: 400
+          type: number
+          x-struct:
+          x-validate:
+      title: ErrorResponse40001
+      type: object
+      x-struct:
       x-validate:
     ApiSendContentReceiverRequest:
       properties:
@@ -841,6 +987,27 @@ components:
       title: MyOutboxRequest
       type: object
       x-struct: Elixir.Web.Doc.Requests.Mailbox.MyOutboxRequest
+      x-validate:
+    ErrorResponse50000:
+      properties:
+        code:
+          example: 50000
+          type: number
+          x-struct:
+          x-validate:
+        message:
+          example: internal error
+          type: string
+          x-struct:
+          x-validate:
+        status:
+          example: 500
+          type: number
+          x-struct:
+          x-validate:
+      title: ErrorResponse50000
+      type: object
+      x-struct:
       x-validate:
     ParseAddressResponse:
       example:
@@ -1016,6 +1183,41 @@ components:
       type: object
       x-struct: Elixir.Web.Doc.Requests.Content.ApiSendContent.ApiSendContentFallback
       x-validate:
+    PreviewPapermailCoverLetter:
+      description: Schema for the cover letter included in the paper mail.
+      properties:
+        data:
+          description: Custom data for the cover letter.
+          nullable: true
+          type: string
+          x-struct:
+          x-validate:
+        enable:
+          description: Whether to include a cover letter.
+          type: boolean
+          x-struct:
+          x-validate:
+        name:
+          description: Name of the cover letter template. If data is provided, this name is ignored.
+          type: string
+          x-struct:
+          x-validate:
+        type:
+          description: Type of the cover letter, default = predefined templates, custom = self-defined
+          enum:
+            - default
+            - custom
+          type: string
+          x-struct:
+          x-validate:
+      required:
+        - enable
+        - name
+        - type
+      title: PreviewPapermailCoverLetter
+      type: object
+      x-struct: Elixir.Web.Doc.Requests.Content.Api.SendContentPreviewPapermail.PreviewPapermailCoverLetter
+      x-validate:
     ContentGetActionsApiResponse:
       properties:
         payments:
@@ -1173,11 +1375,68 @@ components:
       type: object
       x-struct: Elixir.Web.Doc.Responses.Content.ContentGetActionsApiResponse
       x-validate:
+    UpdateCoverLetterRequest:
+      description: Request schema for updating a cover letter.
+      properties:
+        content:
+          description: The content of the cover letter in base64 encoding.
+          type: string
+          x-struct:
+          x-validate:
+        name:
+          description: The name of the cover letter.
+          type: string
+          x-struct:
+          x-validate:
+      required:
+        - name
+        - content
+      title: UpdateCoverLetterRequest
+      type: object
+      x-struct: Elixir.Web.Doc.Requests.Content.Api.UpdateCoverLetterRequest
+      x-validate:
+    ErrorResponse40009:
+      properties:
+        code:
+          example: 40009
+          type: number
+          x-struct:
+          x-validate:
+        message:
+          example: failed to prepare physical content for letter
+          type: string
+          x-struct:
+          x-validate:
+        status:
+          example: 400
+          type: number
+          x-struct:
+          x-validate:
+      title: ErrorResponse40009
+      type: object
+      x-struct:
+      x-validate:
     ReceiverBulkExistResponse:
       properties:
         receivers:
           items:
-            $ref: '#/components/schemas/ReceiverExistResponse'
+            properties:
+              type:
+                description: 'The type of the receiver information: i.e. email, phone, or birth_info'
+                enum:
+                  - email
+                  - phone
+                  - birth_info
+                  - post_department
+                  - address_book
+                  - postal_address
+                example: birth_info
+                type: string
+                x-struct:
+                x-validate:
+            type: object
+            x-struct:
+            x-validate:
           type: array
           x-struct:
           x-validate:
@@ -1503,6 +1762,36 @@ components:
       type: object
       x-struct: Elixir.Web.Doc.Responses.Content.ContentGetResponse.Content
       x-validate:
+    DataElement:
+      properties:
+        name:
+          description: Name of the data element
+          type: string
+          x-struct:
+          x-validate:
+        reference_id:
+          description: (optional, but required for optimised export) ID of the data element. It must be unique within the wallet item. It is used to reference the data element from other parts of the wallet item. It should not contain sensitive information.
+          type: string
+          x-struct:
+          x-validate:
+        type:
+          description: Type of the data element, e.g. 'text' or 'url'. JWT is a signed webtoken that can contain verifiable credentials or other information. The type can be used by the wallet to determine how to display the data element or how to handle it when exporting to other wallets.
+          enum:
+            - text
+            - url
+            - jwt
+          type: string
+          x-struct:
+          x-validate:
+        value:
+          description: Value of the data element
+          type: string
+          x-struct:
+          x-validate:
+      title: DataElement
+      type: object
+      x-struct: Elixir.Web.Doc.Requests.Wallet.WalletDataElement.DataElement
+      x-validate:
     ApiSendContentReceiverBirthInformation:
       properties:
         birth_name:
@@ -1669,6 +1958,44 @@ components:
       title: LoginResponse
       type: object
       x-struct: Elixir.Web.Doc.Responses.Auth.Login.LoginResponse
+      x-validate:
+    UpdateCoverLetterResponse:
+      description: Response schema for updating a cover letter.
+      properties:
+        description:
+          description: A description of the cover letter.
+          type: string
+          x-struct:
+          x-validate:
+        display_name:
+          description: The display name of the cover letter.
+          type: string
+          x-struct:
+          x-validate:
+        id:
+          description: The unique identifier of the cover letter.
+          type: string
+          x-struct:
+          x-validate:
+        name:
+          description: The name of the cover letter.
+          type: string
+          x-struct:
+          x-validate:
+        type:
+          description: The type of the cover letter, e.g., 'custom'.
+          type: string
+          x-struct:
+          x-validate:
+      required:
+        - id
+        - name
+        - description
+        - display_name
+        - type
+      title: UpdateCoverLetterResponse
+      type: object
+      x-struct: Elixir.Web.Doc.Responses.Content.UploadCoverLetterResponse
       x-validate:
     ErrorResponse40401:
       properties:
@@ -2091,6 +2418,286 @@ paths:
       summary: Logout
       tags:
         - Authentication
+  /v1/content/cover_letter/{tenant}/custom/new:
+    post:
+      callbacks: {}
+      description: Uploads a custom cover letter for a tenant. The cover letter must be in PDF format and provided as a base64 encoded string.
+      operationId: Web.Api.Controller.ContentController.upload_cover_letter
+      parameters:
+        - description: Tenant ID
+          example: b0440b80-0857-43e9-8f13-723c8eb6a39c
+          in: path
+          name: tenant
+          required: true
+          schema:
+            type: string
+            x-struct:
+            x-validate:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCoverLetterRequest'
+        description: Cover Letter Upload Request
+        required: false
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateCoverLetterResponse'
+          description: Cover Letter Upload response
+        400:
+          content:
+            application/json:
+              schema:
+                properties:
+                  code:
+                    example: 40001
+                    type: number
+                    x-struct:
+                    x-validate:
+                  message:
+                    example: csr invalid
+                    type: string
+                    x-struct:
+                    x-validate:
+                  status:
+                    example: 400
+                    type: number
+                    x-struct:
+                    x-validate:
+                title: ErrorResponse40001
+                type: object
+                x-struct:
+                x-validate:
+          description: Bad Request
+        401:
+          content:
+            application/json:
+              schema:
+                properties:
+                  code:
+                    example: 40102
+                    type: number
+                    x-struct:
+                    x-validate:
+                  message:
+                    example: No access to tenant
+                    type: string
+                    x-struct:
+                    x-validate:
+                  status:
+                    example: 401
+                    type: number
+                    x-struct:
+                    x-validate:
+                title: ErrorResponse40102
+                type: object
+                x-struct:
+                x-validate:
+          description: Unauthorized
+        500:
+          content:
+            application/json:
+              schema:
+                properties:
+                  code:
+                    example: 50000
+                    type: number
+                    x-struct:
+                    x-validate:
+                  message:
+                    example: internal error
+                    type: string
+                    x-struct:
+                    x-validate:
+                  status:
+                    example: 500
+                    type: number
+                    x-struct:
+                    x-validate:
+                title: ErrorResponse50000
+                type: object
+                x-struct:
+                x-validate:
+          description: Internal Server Error
+      security:
+        - bearer_auth: []
+      summary: Upload Custom Cover Letter
+      tags:
+        - Content
+  /v1/content/cover_letter/{tenant}/custom/{name}/delete:
+    delete:
+      callbacks: {}
+      description: Deletes a custom cover letter for a tenant.
+      operationId: Web.Api.Controller.ContentController.delete_cover_letter
+      parameters:
+        - description: Tenant ID
+          example: b0440b80-0857-43e9-8f13-723c8eb6a39c
+          in: path
+          name: tenant
+          required: true
+          schema:
+            type: string
+            x-struct:
+            x-validate:
+        - description: Name of the cover letter to delete
+          example: custom_cover_letter_1
+          in: path
+          name: name
+          required: true
+          schema:
+            type: string
+            x-struct:
+            x-validate:
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                properties:
+                  status:
+                    description: Status of the deletion operation.
+                    type: string
+                    x-struct:
+                    x-validate:
+                type: object
+                x-struct:
+                x-validate:
+          description: Cover Letter Deletion response
+        401:
+          content:
+            application/json:
+              schema:
+                properties:
+                  code:
+                    example: 40102
+                    type: number
+                    x-struct:
+                    x-validate:
+                  message:
+                    example: No access to tenant
+                    type: string
+                    x-struct:
+                    x-validate:
+                  status:
+                    example: 401
+                    type: number
+                    x-struct:
+                    x-validate:
+                title: ErrorResponse40102
+                type: object
+                x-struct:
+                x-validate:
+          description: Unauthorized
+        404:
+          content:
+            application/json:
+              schema:
+                properties:
+                  code:
+                    example: 40400
+                    type: number
+                    x-struct:
+                    x-validate:
+                  message:
+                    example: not found
+                    type: string
+                    x-struct:
+                    x-validate:
+                  status:
+                    example: 404
+                    type: number
+                    x-struct:
+                    x-validate:
+                title: ErrorResponse40400
+                type: object
+                x-struct:
+                x-validate:
+          description: Not found
+        500:
+          content:
+            application/json:
+              schema:
+                properties:
+                  code:
+                    example: 50000
+                    type: number
+                    x-struct:
+                    x-validate:
+                  message:
+                    example: internal error
+                    type: string
+                    x-struct:
+                    x-validate:
+                  status:
+                    example: 500
+                    type: number
+                    x-struct:
+                    x-validate:
+                title: ErrorResponse50000
+                type: object
+                x-struct:
+                x-validate:
+          description: Internal Server Error
+      security:
+        - bearer_auth: []
+      summary: Delete Custom Cover Letter
+      tags:
+        - Content
+  /v1/content/cover_letter/{tenant}/list:
+    get:
+      callbacks: {}
+      description: Gets the list of available cover letters for a tenant.
+      operationId: Web.Api.Controller.ContentController.get_cover_letters_list
+      parameters:
+        - description: Tenant ID
+          example: b0440b80-0857-43e9-8f13-723c8eb6a39c
+          in: path
+          name: tenant
+          required: true
+          schema:
+            type: string
+            x-struct:
+            x-validate:
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CoverLettersOverviewResponse'
+          description: Cover Letters Overview response
+        401:
+          content:
+            application/json:
+              schema:
+                properties:
+                  code:
+                    example: 40102
+                    type: number
+                    x-struct:
+                    x-validate:
+                  message:
+                    example: No access to tenant
+                    type: string
+                    x-struct:
+                    x-validate:
+                  status:
+                    example: 401
+                    type: number
+                    x-struct:
+                    x-validate:
+                title: ErrorResponse40102
+                type: object
+                x-struct:
+                x-validate:
+          description: Unauthorized
+      security:
+        - bearer_auth: []
+      summary: List Cover Letters
+      tags:
+        - Content
   /v1/content/cover_letter/{tenant}/{type}/{file_name}/{format}:
     get:
       callbacks: {}
@@ -2200,58 +2807,6 @@ paths:
       security:
         - bearer_auth: []
       summary: Get Cover Letter Content
-      tags:
-        - Content
-  /v1/content/cover_letters/{tenant}/list:
-    get:
-      callbacks: {}
-      description: Gets the list of available cover letters for a tenant.
-      operationId: Web.Api.Controller.ContentController.get_cover_letters_list
-      parameters:
-        - description: Tenant ID
-          example: b0440b80-0857-43e9-8f13-723c8eb6a39c
-          in: path
-          name: tenant
-          required: true
-          schema:
-            type: string
-            x-struct:
-            x-validate:
-      responses:
-        200:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CoverLettersOverviewResponse'
-          description: Cover Letters Overview response
-        401:
-          content:
-            application/json:
-              schema:
-                properties:
-                  code:
-                    example: 40102
-                    type: number
-                    x-struct:
-                    x-validate:
-                  message:
-                    example: No access to tenant
-                    type: string
-                    x-struct:
-                    x-validate:
-                  status:
-                    example: 401
-                    type: number
-                    x-struct:
-                    x-validate:
-                title: ErrorResponse40102
-                type: object
-                x-struct:
-                x-validate:
-          description: Unauthorized
-      security:
-        - bearer_auth: []
-      summary: List Cover Letters
       tags:
         - Content
   /v1/content/document/{id}:
@@ -2471,6 +3026,144 @@ paths:
       security:
         - bearer_auth: []
       summary: Get Delivery Status
+      tags:
+        - Content
+  /v1/content/preview/{tenant}/paper_mail:
+    post:
+      callbacks: {}
+      description: Renders the document like it is sent to the Deutsche Post, but doesn't send it. This is for preview purposes. The content must be in base64 encoding and the response will be a PDF file.
+      operationId: Web.Api.Controller.ContentController.preview_paper_mail
+      parameters:
+        - description: Tenent/Sender ID
+          example: b0440b80-0857-43e9-8f13-723c8eb6a39c
+          in: path
+          name: tenant
+          required: true
+          schema:
+            type: string
+            x-struct:
+            x-validate:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SendContentPreviewPapermailRequest'
+        description: Content params
+        required: false
+      responses:
+        200:
+          content:
+            application/pdf:
+              schema:
+                description: The rendered paper mail content in PDF format.
+                format: binary
+                type: string
+                x-struct:
+                x-validate:
+          description: Paper Mail Preview response
+        400:
+          content:
+            application/json:
+              schema:
+                properties:
+                  code:
+                    example: 40009
+                    type: number
+                    x-struct:
+                    x-validate:
+                  message:
+                    example: failed to prepare physical content for letter
+                    type: string
+                    x-struct:
+                    x-validate:
+                  status:
+                    example: 400
+                    type: number
+                    x-struct:
+                    x-validate:
+                title: ErrorResponse40009
+                type: object
+                x-struct:
+                x-validate:
+          description: Failed to prepare content for letter
+        401:
+          content:
+            application/json:
+              schema:
+                properties:
+                  code:
+                    example: 40102
+                    type: number
+                    x-struct:
+                    x-validate:
+                  message:
+                    example: No access to tenant
+                    type: string
+                    x-struct:
+                    x-validate:
+                  status:
+                    example: 401
+                    type: number
+                    x-struct:
+                    x-validate:
+                title: ErrorResponse40102
+                type: object
+                x-struct:
+                x-validate:
+          description: Unauthorized
+        404:
+          content:
+            application/json:
+              schema:
+                properties:
+                  code:
+                    example: 40401
+                    type: number
+                    x-struct:
+                    x-validate:
+                  message:
+                    example: receiver not found
+                    type: string
+                    x-struct:
+                    x-validate:
+                  status:
+                    example: 404
+                    type: number
+                    x-struct:
+                    x-validate:
+                title: ErrorResponse40401
+                type: object
+                x-struct:
+                x-validate:
+          description: Not found
+        422:
+          content:
+            application/json:
+              schema:
+                properties:
+                  code:
+                    example: 42201
+                    type: number
+                    x-struct:
+                    x-validate:
+                  message:
+                    example: content type not supported
+                    type: string
+                    x-struct:
+                    x-validate:
+                  status:
+                    example: 422
+                    type: number
+                    x-struct:
+                    x-validate:
+                title: ErrorResponse42201
+                type: object
+                x-struct:
+                x-validate:
+          description: Invalid content
+      security:
+        - bearer_auth: []
+      summary: Preview Paper Mail
       tags:
         - Content
   /v1/content/receiver/check:
@@ -2808,6 +3501,22 @@ paths:
       summary: Create a signature reference
       tags:
         - Signatures
+  /v1/status:
+    get:
+      callbacks: {}
+      operationId: Web.Api.Controller.StatusController.get_status
+      parameters: []
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Status response
+      security: []
+      summary: Get Status
+      tags:
+        - Status
   /v1/tenants/id/{id}:
     get:
       callbacks: {}
