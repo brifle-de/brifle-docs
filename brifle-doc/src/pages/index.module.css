@@ -330,6 +330,27 @@
 .lineDelay8  { animation-delay: 2.4s; }
 .lineDelay9  { animation-delay: 2.6s; }
 .lineDelay10 { animation-delay: 2.8s; }
+.lineDelay11 { animation-delay: 3.0s; }
+.lineDelay12 { animation-delay: 3.2s; }
+.lineDelay13 { animation-delay: 3.4s; }
+.lineDelay14 { animation-delay: 3.6s; }
+.lineDelay15 { animation-delay: 3.8s; }
+.lineDelay16 { animation-delay: 4.0s; }
+.lineDelay17 { animation-delay: 4.2s; }
+.lineDelay18 { animation-delay: 4.4s; }
+.lineDelay19 { animation-delay: 4.6s; }
+.lineDelay20 { animation-delay: 4.8s; }
+.lineDelay21 { animation-delay: 5.0s; }
+.lineDelay22 { animation-delay: 5.2s; }
+.lineDelay23 { animation-delay: 5.4s; }
+.lineDelay24 { animation-delay: 5.6s; }
+.lineDelay25 { animation-delay: 5.8s; }
+.lineDelay26 { animation-delay: 6.0s; }
+.lineDelay27 { animation-delay: 6.2s; }
+.lineDelay28 { animation-delay: 6.4s; }
+.lineDelay29 { animation-delay: 6.6s; }
+.lineDelay30 { animation-delay: 6.8s; }
+.lineDelay31 { animation-delay: 7.0s; }
 
 @keyframes lineReveal {
   from { opacity: 0; transform: translateX(-4px); }
