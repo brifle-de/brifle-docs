@@ -1,0 +1,935 @@
+/**
+ * Brifle Developer Docs — Global Styles
+ * Aesthetic: Terminal Meets Product
+ * Matches landing page dark green design system
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&family=Geist:wght@300;400;500;600&display=swap');
+
+/* ══════════════════════════════════════════════════════════════
+   Design tokens (light mode — intentionally kept dark)
+   ══════════════════════════════════════════════════════════════ */
+:root {
+  /* Infima primary — lime-green accent */
+  --ifm-color-primary:          #63ffb2;
+  --ifm-color-primary-dark:     #3df5a0;
+  --ifm-color-primary-darker:   #2af29a;
+  --ifm-color-primary-darkest:  #09e086;
+  --ifm-color-primary-light:    #89ffbf;
+  --ifm-color-primary-lighter:  #9fffca;
+  --ifm-color-primary-lightest: #c2ffd9;
+
+  /* Surfaces */
+  --ifm-background-color:          #080b10;
+  --ifm-background-surface-color:  #0d1117;
+  --ifm-hover-overlay:             rgba(99,255,178,0.06);
+
+  /* Navbar */
+  --ifm-navbar-background-color:   #0b0f15;
+  --ifm-navbar-shadow:             0 1px 0 rgba(99,255,178,0.08);
+  --ifm-navbar-height:             60px;
+  --ifm-navbar-link-color:         rgba(232,240,234,0.65);
+  --ifm-navbar-link-hover-color:   #63ffb2;
+
+  /* Sidebar */
+  --ifm-menu-color:                rgba(232,240,234,0.55);
+  --ifm-menu-color-active:         #63ffb2;
+  --ifm-menu-color-background-active:   rgba(99,255,178,0.1);
+  --ifm-menu-color-background-hover:    rgba(99,255,178,0.06);
+
+  /* Fonts */
+  --ifm-font-family-base:          'Geist', system-ui, sans-serif;
+  --ifm-font-family-monospace:     'Geist Mono', 'JetBrains Mono', monospace;
+  --ifm-heading-font-family:       'Geist Mono', monospace;
+
+  /* Font sizes */
+  --ifm-font-size-base:            15px;
+  --ifm-code-font-size:            13px;
+  --ifm-h1-font-size:              2.2rem;
+  --ifm-h2-font-size:              1.6rem;
+  --ifm-h3-font-size:              1.2rem;
+
+  /* Text */
+  --ifm-font-color-base:           #e8f0ea;
+  --ifm-font-color-secondary:      rgba(232,240,234,0.5);
+  --ifm-heading-color:             #e8f0ea;
+  --ifm-link-color:                #63ffb2;
+  --ifm-link-hover-color:          #9fffca;
+
+  /* Borders */
+  --ifm-color-emphasis-200:        rgba(255,255,255,0.07);
+  --ifm-color-emphasis-300:        rgba(255,255,255,0.1);
+  --ifm-color-emphasis-600:        rgba(232,240,234,0.4);
+  --ifm-global-border-width:       1px;
+
+  /* Code blocks */
+  --ifm-code-background:                  rgba(255,255,255,0.06);
+  --ifm-pre-background:                   #0d1117;
+  --ifm-pre-border-radius:                10px;
+  --docusaurus-highlighted-code-line-bg:  rgba(99,255,178,0.08);
+
+  /* Cards / admonitions */
+  --ifm-card-background-color:     #0d1117;
+  --ifm-card-border-radius:        12px;
+
+  /* Tabs */
+  --ifm-tabs-color:                rgba(232,240,234,0.5);
+  --ifm-tabs-color-active:         #63ffb2;
+  --ifm-tabs-color-active-border:  #63ffb2;
+
+  /* Footer */
+  --ifm-footer-background-color:   #060a0e;
+  --ifm-footer-color:              rgba(232,240,234,0.45);
+  --ifm-footer-link-color:         rgba(232,240,234,0.55);
+  --ifm-footer-link-hover-color:   #63ffb2;
+  --ifm-footer-title-color:        #e8f0ea;
+
+  /* Breadcrumb */
+  --ifm-breadcrumb-color-active:   #63ffb2;
+
+  /* Pagination */
+  --ifm-pagination-nav-color-hover: #63ffb2;
+
+  /* Table of contents */
+  --ifm-toc-link-color:            rgba(232,240,234,0.45);
+  --ifm-toc-link-color-active:     #63ffb2;
+
+  /* OpenAPI explorer */
+  --openapi-code-tab-shadow-color-python:     rgba(99,255,178,0.3);
+  --openapi-code-tab-shadow-color-go:         rgba(99,255,178,0.3);
+  --openapi-code-tab-shadow-color-js:         rgba(99,255,178,0.3);
+  --openapi-code-tab-shadow-color-bash:       rgba(99,255,178,0.3);
+  --openapi-code-tab-shadow-color-ruby:       rgba(99,255,178,0.3);
+  --openapi-code-tab-shadow-color-csharp:     rgba(99,255,178,0.3);
+  --opeanpi-code-tab-shadow-color-nodejs:     rgba(99,255,178,0.3);
+  --openapi-code-tab-shadow-color-php:        rgba(99,255,178,0.3);
+  --openapi-code-tab-shadow-color-java:       rgba(99,255,178,0.3);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Dark mode — identical palette (the whole site is dark)
+   ══════════════════════════════════════════════════════════════ */
+[data-theme='dark'] {
+  --ifm-color-primary:          #63ffb2;
+  --ifm-color-primary-dark:     #3df5a0;
+  --ifm-color-primary-darker:   #2af29a;
+  --ifm-color-primary-darkest:  #09e086;
+  --ifm-color-primary-light:    #89ffbf;
+  --ifm-color-primary-lighter:  #9fffca;
+  --ifm-color-primary-lightest: #c2ffd9;
+
+  --ifm-background-color:         #080b10;
+  --ifm-background-surface-color: #0d1117;
+
+  --ifm-navbar-background-color:  #0b0f15;
+  --ifm-font-color-base:          #e8f0ea;
+  --ifm-heading-color:            #e8f0ea;
+  --ifm-link-color:               #63ffb2;
+  --ifm-link-hover-color:         #9fffca;
+  --ifm-pre-background:           #0d1117;
+  --ifm-code-background:          rgba(255,255,255,0.06);
+  --ifm-footer-background-color:  #060a0e;
+
+  --ifm-badge-color:              #060e0a;
+  --docusaurus-highlighted-code-line-bg: rgba(99,255,178,0.08);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Typography
+   ══════════════════════════════════════════════════════════════ */
+
+/* Override Quicksand with our system */
+@font-face {
+  font-family: 'Quicksand';
+  src: url("/fonts/Quicksand-VariableFont_wght.ttf");
+}
+
+* {
+  font-family: 'Geist', system-ui, sans-serif !important;
+}
+
+code, pre, kbd, samp,
+.prism-code,
+[class*='codeBlock'],
+[class*='token'] {
+  font-family: 'Geist Mono', 'JetBrains Mono', monospace !important;
+}
+
+h1, h2, h3, h4, h5, h6,
+[class*='heading'],
+.navbar__title {
+  font-family: 'Geist Mono', monospace !important;
+  letter-spacing: -0.01em;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Global base
+   ══════════════════════════════════════════════════════════════ */
+
+html {
+  background: #080b10;
+}
+
+body {
+  background: #080b10;
+  color: #e8f0ea;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #080b10; }
+::-webkit-scrollbar-thumb { background: rgba(99,255,178,0.2); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(99,255,178,0.4); }
+
+/* Selection */
+::selection {
+  background: rgba(99,255,178,0.2);
+  color: #e8f0ea;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Navbar
+   ══════════════════════════════════════════════════════════════ */
+
+.navbar {
+  background: rgba(8,11,16,0.85) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(99,255,178,0.08);
+  box-shadow: none !important;
+  padding: 0 24px;
+}
+
+.navbar__title {
+  color: #e8f0ea !important;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.navbar__link {
+  color: rgba(232,240,234,0.6) !important;
+  font-size: 13px;
+  font-weight: 400;
+  transition: color 0.15s;
+}
+
+.navbar__link:hover,
+.navbar__link--active {
+  color: #63ffb2 !important;
+  background: transparent !important;
+}
+
+.navbar__brand:hover { opacity: 0.85; }
+
+/* Search bar */
+.navbar__search-input {
+  background: rgba(255,255,255,0.05) !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  border-radius: 8px !important;
+  color: #e8f0ea !important;
+  font-family: 'Geist Mono', monospace !important;
+  font-size: 12px !important;
+}
+
+.navbar__search-input::placeholder { color: rgba(232,240,234,0.3) !important; }
+.navbar__search-input:focus { border-color: rgba(99,255,178,0.3) !important; }
+
+/* Version badge in navbar */
+.navbar__items .badge {
+  background: rgba(99,255,178,0.12);
+  color: #63ffb2;
+  border: 1px solid rgba(99,255,178,0.2);
+  font-family: 'Geist Mono', monospace !important;
+  font-size: 10px;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Sidebar
+   ══════════════════════════════════════════════════════════════ */
+
+.theme-doc-sidebar-container {
+  background: #0a0e13 !important;
+  border-right: 1px solid rgba(255,255,255,0.06) !important;
+}
+
+.menu {
+  background: transparent !important;
+  padding: 16px 8px !important;
+}
+
+.menu__link {
+  color: rgba(232,240,234,0.55) !important;
+  font-size: 13px !important;
+  border-radius: 7px !important;
+  transition: color 0.15s, background 0.15s !important;
+}
+
+.menu__link:hover {
+  color: #e8f0ea !important;
+  background: rgba(99,255,178,0.06) !important;
+}
+
+.menu__link--active,
+.menu__link--active:hover {
+  color: #63ffb2 !important;
+  background: rgba(99,255,178,0.1) !important;
+  font-weight: 500 !important;
+}
+
+.menu__caret::before {
+  border-color: rgba(232,240,234,0.3) !important;
+}
+
+.menu__list-item-collapsible:hover {
+  background: rgba(99,255,178,0.05) !important;
+}
+
+/* Sidebar category header */
+.menu__list-item:not(:first-child) {
+  margin-top: 2px;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Doc content area
+   ══════════════════════════════════════════════════════════════ */
+
+.docMainContainer,
+.docPage,
+article {
+  background: #080b10 !important;
+}
+
+.theme-doc-markdown {
+  max-width: 800px;
+}
+
+/* Headings */
+article h1 { color: #e8f0ea; border-bottom: 1px solid rgba(99,255,178,0.12); padding-bottom: 12px; }
+article h2 { color: #e8f0ea; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 8px; margin-top: 48px; }
+article h3 { color: #c8dece; margin-top: 32px; }
+
+/* Paragraph text */
+article p, article li {
+  color: rgba(232,240,234,0.8);
+  line-height: 1.75;
+}
+
+/* Inline code */
+code:not([class*='language']) {
+  background: rgba(255,255,255,0.07) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  color: #63ffb2 !important;
+  border-radius: 5px !important;
+  padding: 1px 6px !important;
+  font-size: 12.5px !important;
+}
+
+/* Code blocks */
+.prism-code,
+pre {
+  background: #0d1117 !important;
+  border: 1px solid rgba(255,255,255,0.07) !important;
+  border-radius: 10px !important;
+}
+
+[class*='codeBlockContainer'] {
+  background: #0d1117 !important;
+  border: 1px solid rgba(99,255,178,0.1) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.3) !important;
+}
+
+[class*='codeBlockTitle'] {
+  background: rgba(99,255,178,0.06) !important;
+  border-bottom: 1px solid rgba(99,255,178,0.1) !important;
+  color: rgba(232,240,234,0.6) !important;
+  font-family: 'Geist Mono', monospace !important;
+  font-size: 11px !important;
+  letter-spacing: 0.08em !important;
+}
+
+/* Copy button */
+[class*='copyButton'] {
+  background: rgba(99,255,178,0.08) !important;
+  color: rgba(232,240,234,0.5) !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  border-radius: 6px !important;
+  transition: all 0.15s !important;
+}
+
+[class*='copyButton']:hover {
+  background: rgba(99,255,178,0.15) !important;
+  color: #63ffb2 !important;
+  border-color: rgba(99,255,178,0.25) !important;
+}
+
+/* Tables
+   NOTE: browsers ignore overflow:hidden on <table>, so border-radius
+   on the element itself causes "damaged corners". The fix is to draw
+   borders and radius on the individual corner cells instead.        */
+table {
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  overflow: visible !important;
+  width: 100%;
+}
+
+/* ── Header ── */
+thead tr {
+  background: rgba(99,255,178,0.06) !important;
+}
+
+thead th {
+  color: #63ffb2 !important;
+  font-family: 'Geist Mono', monospace !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  padding: 12px 16px !important;
+  border-top: 1px solid rgba(255,255,255,0.08) !important;
+  border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+  border-left: none !important;
+  border-right: none !important;
+}
+
+/* Left / right outer edges + top corners */
+thead th:first-child {
+  border-left: 1px solid rgba(255,255,255,0.08) !important;
+  border-top-left-radius: 10px !important;
+}
+thead th:last-child {
+  border-right: 1px solid rgba(255,255,255,0.08) !important;
+  border-top-right-radius: 10px !important;
+}
+
+/* ── Body rows ── */
+tbody tr {
+  background: transparent !important;
+  border: none !important;
+  transition: background 0.15s;
+}
+
+tbody tr:hover { background: rgba(99,255,178,0.03) !important; }
+
+tbody td {
+  color: rgba(232,240,234,0.75) !important;
+  padding: 12px 16px !important;
+  font-size: 13.5px !important;
+  border-top: none !important;
+  border-bottom: 1px solid rgba(255,255,255,0.05) !important;
+  border-left: none !important;
+  border-right: none !important;
+}
+
+/* Left / right outer edges on every body row */
+tbody td:first-child { border-left: 1px solid rgba(255,255,255,0.08) !important; }
+tbody td:last-child  { border-right: 1px solid rgba(255,255,255,0.08) !important; }
+
+/* Last row: solid bottom border + bottom corners */
+tbody tr:last-child td {
+  border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+}
+tbody tr:last-child td:first-child { border-bottom-left-radius: 10px !important; }
+tbody tr:last-child td:last-child  { border-bottom-right-radius: 10px !important; }
+
+/* Edge case: header-only table (no tbody) */
+thead tr:only-child th:first-child {
+  border-bottom-left-radius: 10px !important;
+}
+thead tr:only-child th:last-child {
+  border-bottom-right-radius: 10px !important;
+}
+
+/* Blockquotes */
+blockquote {
+  border-left: 3px solid #63ffb2 !important;
+  background: rgba(99,255,178,0.05) !important;
+  border-radius: 0 8px 8px 0 !important;
+  margin: 20px 0 !important;
+  padding: 16px 20px !important;
+  color: rgba(232,240,234,0.7) !important;
+}
+
+/* Horizontal rules */
+hr {
+  border-color: rgba(255,255,255,0.07) !important;
+  margin: 40px 0 !important;
+}
+
+/* Links */
+a {
+  color: #63ffb2;
+  text-decoration: none;
+  transition: color 0.15s, opacity 0.15s;
+}
+
+a:hover { color: #9fffca; }
+
+/* ══════════════════════════════════════════════════════════════
+   Admonitions (note, tip, warning, danger)
+   ══════════════════════════════════════════════════════════════ */
+
+.admonition {
+  border-radius: 10px !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+}
+
+.admonition-note {
+  background: rgba(99,255,178,0.05) !important;
+  border-color: rgba(99,255,178,0.2) !important;
+}
+
+.admonition-tip {
+  background: rgba(99,255,178,0.06) !important;
+  border-color: rgba(99,255,178,0.25) !important;
+}
+
+.admonition-info {
+  background: rgba(56,189,248,0.06) !important;
+  border-color: rgba(56,189,248,0.2) !important;
+}
+
+.admonition-warning {
+  background: rgba(251,191,36,0.06) !important;
+  border-color: rgba(251,191,36,0.2) !important;
+}
+
+.admonition-danger {
+  background: rgba(248,113,113,0.06) !important;
+  border-color: rgba(248,113,113,0.2) !important;
+}
+
+.admonition-heading h5 {
+  font-family: 'Geist Mono', monospace !important;
+  font-size: 11px !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Tabs
+   ══════════════════════════════════════════════════════════════ */
+
+.tabs__item {
+  font-family: 'Geist Mono', monospace !important;
+  font-size: 12px !important;
+  letter-spacing: 0.04em !important;
+  color: rgba(232,240,234,0.5) !important;
+  border-bottom: 2px solid transparent !important;
+  transition: color 0.15s, border-color 0.15s !important;
+  padding: 10px 16px !important;
+}
+
+.tabs__item:hover { color: rgba(232,240,234,0.85) !important; }
+
+.tabs__item--active {
+  color: #63ffb2 !important;
+  border-bottom-color: #63ffb2 !important;
+  background: transparent !important;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Breadcrumbs
+   ══════════════════════════════════════════════════════════════ */
+
+.breadcrumbs__item {
+  font-family: 'Geist Mono', monospace !important;
+  font-size: 12px !important;
+}
+
+.breadcrumbs__link {
+  color: rgba(232,240,234,0.4) !important;
+  background: transparent !important;
+}
+
+.breadcrumbs__link:hover { color: #63ffb2 !important; background: transparent !important; }
+
+.breadcrumbs__item--active .breadcrumbs__link {
+  color: rgba(232,240,234,0.7) !important;
+  background: transparent !important;
+}
+
+.breadcrumbs__separator { color: rgba(232,240,234,0.2) !important; }
+
+/* ══════════════════════════════════════════════════════════════
+   Table of contents (right sidebar)
+   ══════════════════════════════════════════════════════════════ */
+
+.table-of-contents {
+  border-left: 1px solid rgba(255,255,255,0.07) !important;
+  padding-left: 16px !important;
+}
+
+.table-of-contents__link {
+  color: rgba(232,240,234,0.4) !important;
+  font-size: 12px !important;
+  transition: color 0.15s !important;
+}
+
+.table-of-contents__link:hover,
+.table-of-contents__link--active {
+  color: #63ffb2 !important;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Pagination (prev / next)
+   ══════════════════════════════════════════════════════════════ */
+
+.pagination-nav__link {
+  background: rgba(255,255,255,0.03) !important;
+  border: 1px solid rgba(255,255,255,0.07) !important;
+  border-radius: 10px !important;
+  transition: border-color 0.15s, background 0.15s !important;
+}
+
+.pagination-nav__link:hover {
+  background: rgba(99,255,178,0.05) !important;
+  border-color: rgba(99,255,178,0.25) !important;
+}
+
+.pagination-nav__sublabel {
+  color: rgba(232,240,234,0.35) !important;
+  font-family: 'Geist Mono', monospace !important;
+  font-size: 10px !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+}
+
+.pagination-nav__label {
+  color: #e8f0ea !important;
+  font-weight: 500 !important;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Footer
+   ══════════════════════════════════════════════════════════════ */
+
+.footer--dark,
+.footer {
+  background-color: #060a0e !important;
+  border-top: 1px solid rgba(255,255,255,0.06) !important;
+}
+
+.footer__title {
+  color: #e8f0ea !important;
+  font-family: 'Geist Mono', monospace !important;
+  font-size: 11px !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  opacity: 0.7;
+}
+
+.footer__link-item {
+  color: rgba(232,240,234,0.45) !important;
+  font-size: 13px !important;
+  transition: color 0.15s !important;
+}
+
+.footer__link-item:hover { color: #63ffb2 !important; }
+
+.footer__copyright {
+  color: rgba(232,240,234,0.25) !important;
+  font-family: 'Geist Mono', monospace !important;
+  font-size: 11px !important;
+  border-top: 1px solid rgba(255,255,255,0.05) !important;
+  padding-top: 20px !important;
+  margin-top: 20px !important;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Hero (used on non-landing pages, e.g. blog)
+   ══════════════════════════════════════════════════════════════ */
+
+.hero--dark {
+  background: #080b10 !important;
+  color: #e8f0ea;
+  border-bottom: 1px solid rgba(99,255,178,0.08);
+}
+
+.hero__title {
+  font-family: 'Geist Mono', monospace !important;
+  color: #e8f0ea !important;
+}
+
+.hero__subtitle {
+  color: rgba(232,240,234,0.55) !important;
+  font-size: 16px !important;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Badges / pills
+   ══════════════════════════════════════════════════════════════ */
+
+.badge {
+  font-family: 'Geist Mono', monospace !important;
+  font-size: 10px !important;
+  letter-spacing: 0.08em !important;
+  border-radius: 5px !important;
+}
+
+.badge--primary {
+  background: rgba(99,255,178,0.12) !important;
+  color: #63ffb2 !important;
+  border: 1px solid rgba(99,255,178,0.2) !important;
+}
+
+.badge--secondary {
+  background: rgba(255,255,255,0.06) !important;
+  color: rgba(232,240,234,0.6) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+}
+
+.badge--success {
+  background: rgba(99,255,178,0.1) !important;
+  color: #63ffb2 !important;
+  border: 1px solid rgba(99,255,178,0.18) !important;
+}
+
+.badge--info {
+  background: rgba(56,189,248,0.1) !important;
+  color: #7dd3fc !important;
+  border: 1px solid rgba(56,189,248,0.2) !important;
+}
+
+.badge--warning {
+  background: rgba(251,191,36,0.1) !important;
+  color: #fcd34d !important;
+  border: 1px solid rgba(251,191,36,0.2) !important;
+}
+
+.badge--danger {
+  background: rgba(248,113,113,0.1) !important;
+  color: #fca5a5 !important;
+  border: 1px solid rgba(248,113,113,0.2) !important;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   OpenAPI Explorer
+   ══════════════════════════════════════════════════════════════ */
+
+.openapi-explorer__request-btn {
+  background: #63ffb2 !important;
+  color: #060e0a !important;
+  border: none !important;
+  border-radius: 8px !important;
+  font-family: 'Geist Mono', monospace !important;
+  font-weight: 600 !important;
+  font-size: 12px !important;
+  transition: box-shadow 0.15s, transform 0.15s !important;
+}
+
+.openapi-explorer__request-btn:hover {
+  box-shadow: 0 4px 16px rgba(99,255,178,0.3) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Method badges */
+.openapi__method-endpoint .badge--success {
+  background: rgba(99,255,178,0.12) !important;
+  color: #63ffb2 !important;
+  border: 1px solid rgba(99,255,178,0.2) !important;
+}
+
+.openapi__method-endpoint .badge--info {
+  background: rgba(56,189,248,0.1) !important;
+  color: #7dd3fc !important;
+  border: 1px solid rgba(56,189,248,0.2) !important;
+}
+
+.openapi__method-endpoint .badge--warning {
+  background: rgba(251,191,36,0.08) !important;
+  color: #fcd34d !important;
+  border: 1px solid rgba(251,191,36,0.2) !important;
+}
+
+.openapi__method-endpoint .badge--danger {
+  background: rgba(248,113,113,0.08) !important;
+  color: #fca5a5 !important;
+  border: 1px solid rgba(248,113,113,0.2) !important;
+}
+
+/* Code language tabs */
+.tabs.openapi-tabs__code-list-container {
+  padding-bottom: 20px !important;
+  border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+}
+
+/* Hide logo pseudo-elements (keep the original intent) */
+.openapi-tabs__code-item--python::after,
+.openapi-tabs__code-item--go::after,
+.openapi-tabs__code-item--javascript::after,
+.openapi-tabs__code-item--bash::after,
+.openapi-tabs__code-item--ruby::after,
+.openapi-tabs__code-item--csharp::after,
+.openapi-tabs__code-item--nodejs::after,
+.openapi-tabs__code-item--php::after,
+.openapi-tabs__code-item--java::after,
+.openapi-tabs__code-item--powershell::after {
+  content: "";
+  display: none;
+  background: unset !important;
+}
+
+/* Active tab glow — unified green */
+.openapi-tabs__code-item.active {
+  box-shadow: 0 0 0 2px rgba(99,255,178,0.25) !important;
+  border-color: rgba(99,255,178,0.35) !important;
+  color: #63ffb2 !important;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Docusaurus search
+   ══════════════════════════════════════════════════════════════ */
+
+.DocSearch-Button {
+  background: rgba(255,255,255,0.04) !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  border-radius: 8px !important;
+  color: rgba(232,240,234,0.4) !important;
+}
+
+.DocSearch-Button:hover {
+  background: rgba(99,255,178,0.06) !important;
+  border-color: rgba(99,255,178,0.2) !important;
+}
+
+.DocSearch-Button-Key {
+  background: rgba(255,255,255,0.06) !important;
+  color: rgba(232,240,234,0.4) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  box-shadow: none !important;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Misc utility
+   ══════════════════════════════════════════════════════════════ */
+
+/* Smooth page transitions */
+.main-wrapper { animation: pageFadeIn 0.25s ease both; }
+
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Mobile / tablet sidebar
+   Docusaurus renders two .navbar-sidebar__item panels side-by-side
+   inside .navbar-sidebar__items and slides between them via
+   translateX. We must NOT set overflow:hidden on the items wrapper
+   or overflow:hidden/fixed heights that clip the second panel.
+   ══════════════════════════════════════════════════════════════ */
+ 
+/* Backdrop */
+.navbar-sidebar__backdrop {
+  background: rgba(6,10,14,0.85) !important;
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px) !important;
+}
+
+.theme-layout-navbar-sidebar navbar-sidebar{
+  height: 100vh !important;
+}
+
+/* The outer sidebar panel */
+.navbar-sidebar {
+  background: #0a0e13 !important;
+  border-right: 1px solid rgba(99,255,178,0.08) !important;
+  height: 100vh !important; 
+}
+
+/* Brand row */
+.navbar-sidebar__brand {
+  background: #0b0f15 !important;
+  border-bottom: 1px solid rgba(99,255,178,0.08) !important;
+}
+
+/* ── The items wrapper scrolls on its own axis.
+      Do NOT use overflow-x:hidden here — it breaks the slide
+      transition between primary nav and doc tree.              ── */
+.navbar-sidebar__items {
+  /* Allow the slide transform to work: keep overflow visible on x */
+  overflow-x: visible !important;
+  /* Vertical scroll lives on the individual item panels below  */
+  overflow-y: visible !important;
+}
+
+/* ── Each panel (primary nav / doc sidebar) must scroll independently ── */
+.navbar-sidebar__item {
+  /* Fill the available sidebar height */
+  height: calc(100vh - var(--ifm-navbar-height)) !important;
+  height: calc(100dvh - var(--ifm-navbar-height)) !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  -webkit-overflow-scrolling: touch !important;
+  overscroll-behavior-y: contain !important;
+  padding: 8px !important;
+  /* Respect iPhone home bar */
+  padding-bottom: max(8px, env(safe-area-inset-bottom)) !important;
+  /* Thin green scrollbar */
+  scrollbar-width: thin !important;
+  scrollbar-color: rgba(99,255,178,0.15) transparent !important;
+}
+
+.navbar-sidebar__item::-webkit-scrollbar       { width: 3px; }
+.navbar-sidebar__item::-webkit-scrollbar-track { background: transparent; }
+.navbar-sidebar__item::-webkit-scrollbar-thumb {
+  background: rgba(99,255,178,0.2);
+  border-radius: 2px;
+}
+
+/* Menu inside each panel */
+.navbar-sidebar__item .menu {
+  background: transparent !important;
+  padding: 8px 4px !important;
+  /* Must NOT be a scroll container — its parent .navbar-sidebar__item scrolls */
+  overflow: visible !important;
+  height: auto !important;
+}
+
+/* Back button (shown in the doc-tree panel) */
+.navbar-sidebar__back {
+  color: rgba(232,240,234,0.5) !important;
+  font-family: 'Geist Mono', monospace !important;
+  font-size: 12px !important;
+  letter-spacing: 0.06em !important;
+  padding: 8px 12px !important;
+  border-radius: 7px !important;
+  margin: 4px 4px 8px !important;
+  transition: color 0.15s, background 0.15s !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+.navbar-sidebar__back:hover {
+  color: #63ffb2 !important;
+  background: rgba(99,255,178,0.06) !important;
+}
+
+/* Close button in the brand row */
+.navbar-sidebar__close {
+  color: rgba(232,240,234,0.45) !important;
+  transition: color 0.15s !important;
+}
+
+.navbar-sidebar__close:hover {
+  color: #63ffb2 !important;
+  background: transparent !important;
+}
+
+/* Announcement bar */
+.announcementBar {
+  background: rgba(99,255,178,0.1) !important;
+  border-bottom: 1px solid rgba(99,255,178,0.15) !important;
+  color: #e8f0ea !important;
+  font-family: 'Geist Mono', monospace !important;
+  font-size: 12px !important;
+} 
