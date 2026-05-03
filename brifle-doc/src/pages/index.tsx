@@ -92,7 +92,7 @@ const features = [
     desc: 'Type-safe SDKs for TypeScript, Go and more.',
     href: '/docs/sdks/Java/intro',
   },
-  {
+  { 
     icon: '🔐',
     tag: 'Auth',
     title: 'Secure by Default',
